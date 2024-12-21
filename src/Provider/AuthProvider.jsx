@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../frebase/firebase.config";
 
@@ -7,6 +7,8 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(false)
+
+    const provider = new GoogleAuthProvider();
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -22,12 +24,15 @@ const AuthProvider = ({ children }) => {
     const logoutUser = () => {
         return signOut(auth)
     }
+    const createUserWithGoogle = () => {
+        return signInWithPopup(auth, provider)
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser)
-                console.log(currentUser);
+                // console.log(currentUser);
                 setLoading(false)
             } else {
 
@@ -39,6 +44,7 @@ const AuthProvider = ({ children }) => {
             unsubscribe()
         }
     }, [])
+
     const authInfo = {
         user,
         setUser,
@@ -46,7 +52,8 @@ const AuthProvider = ({ children }) => {
         loading,
         updateName,
         logoutUser,
-        logInUser
+        logInUser,
+        createUserWithGoogle
     }
 
     return (

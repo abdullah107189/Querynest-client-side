@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const Register = () => {
-    const { createUser, updateName } = useContext(AuthContext)
+    const { createUser, updateName, createUserWithGoogle } = useContext(AuthContext)
 
     const [name, setName] = useState('');
     const [photoUrl, setPhotoUrl] = useState('');
@@ -52,6 +52,20 @@ const Register = () => {
             })
     };
 
+    const handleLoginWithGoogle = () => {
+        createUserWithGoogle()
+            .then(res => {
+                if (res.user) {
+                    toast.success('Log-in With Google successfully done !')
+                    navigate('/')
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
+                toast.error(error.message)
+            })
+    }
+
     return (
         <div className="flex py-4 items-center justify-center bg-gray-100">
             <div className="w-1/2 h-full p-5 bg-gray-200 rounded-lg shadow-lg flex flex-col items-center">
@@ -65,7 +79,7 @@ const Register = () => {
                 <div className='lg:flex gap-10 items-center'>
                     <div className="flex flex-col space-y-4 lg:w-1/2">
                         <p>By continuing, you agree to QueryNest <span className='text-blue-500 cursor-pointer'>Terms of Use</span> and <span className='text-blue-500 cursor-pointer'>Privacy Policy</span> .</p>
-                        <button className="bg-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-3">
+                        <button onClick={() => handleLoginWithGoogle()} className="bg-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-3">
                             <img className='w-8 h-8' src={googleLogo} alt="" /> Continue with Google
                         </button>
                     </div>

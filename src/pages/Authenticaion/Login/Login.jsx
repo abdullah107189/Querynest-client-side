@@ -1,13 +1,29 @@
 import logo from '../../../assets/queryNest_logo.png'
 import googleLogo from '../../../assets/google.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { logInUser } = useContext(AuthContext)
+    const { logInUser, createUserWithGoogle } = useContext(AuthContext)
+    const navigate = useNavigate()
+
+
+    const handleLoginWithGoogle = () => {
+        createUserWithGoogle()
+            .then(res => {
+                if (res.user) {
+                    toast.success('Log-in With Google successfully done !')
+                    navigate('/')
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
+                toast.error(error.message)
+            })
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -15,6 +31,7 @@ const Login = () => {
             .then(res => {
                 if (res.user) {
                     toast.success('Log-in successfully done !')
+                    navigate('/')
                 }
             })
             .catch(error => {
@@ -22,6 +39,7 @@ const Login = () => {
                 toast.error(error.message)
             })
     };
+
     return (
         <div>
             <div className="flex py-4 items-center justify-center bg-gray-100">
@@ -36,7 +54,7 @@ const Login = () => {
                     <div className='lg:flex gap-10 items-center'>
                         <div className="flex flex-col space-y-4 lg:w-1/2">
                             <p>By continuing, you agree to QueryNest <span className='text-blue-500 cursor-pointer'>Terms of Use</span> and <span className='text-blue-500 cursor-pointer'>Privacy Policy</span> .</p>
-                            <button className="bg-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-3">
+                            <button onClick={handleLoginWithGoogle} className="bg-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-3">
                                 <img className='w-8 h-8' src={googleLogo} alt="" /> Continue with Google
                             </button>
                         </div>
@@ -77,7 +95,7 @@ const Login = () => {
                                     Login
                                 </button>
                             </form>
-                            <p className='my-2 text-center'>Already have an account <Link className='text-blue-600' to={'/reg'}>Register</Link></p>
+                            <p className='my-2 text-center'>If you are new user then, <Link className='text-blue-600' to={'/reg'}>Register</Link></p>
                         </div>
                     </div>
                 </div>
