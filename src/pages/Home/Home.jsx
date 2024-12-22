@@ -1,3 +1,4 @@
+
 import Queries from "../../compoonents/Queries/Queries";
 import Slider from "../../compoonents/Slider/Slider";
 

@@ -13,40 +13,33 @@ const QueryDetails = () => {
             .then(res => {
                 setQueryData(res.data)
             })
-            .catch(error => console.log(error.message))
     }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const date = new Date()
-            console.log(date);
-            const formData = new FormData(e.target)
-            const form = Object.fromEntries(formData.entries())
-            form.queryId = queryData._id
-            form.QueryTitle = queryData.query_title
-            form.productName = queryData.product_name
-            form.userEmail = queryData.authorEmail
-            form.userName = queryData.authorName
-            form.recommenderEmail = user?.email
-            form.recommenderName = user?.displayName
-            form.recommendTime = date
-            console.log('Submitted data:', form);
-            axios.post('http://localhost:4545/add-recommendations', form)
-                .then(res => {
-                    if (res.data.insertedId) {
-                        toast.success('Recommendation added successfully done !')
-                    }
-                })
-        } catch (error) {
-            console.error('Error submitting recommendation:', error);
-        }
+        const date = new Date()
+        const formData = new FormData(e.target)
+        const form = Object.fromEntries(formData.entries())
+        form.queryId = queryData._id
+        form.QueryTitle = queryData.query_title
+        form.productName = queryData.product_name
+        form.userEmail = queryData.authorEmail
+        form.userName = queryData.authorName
+        form.recommenderEmail = user?.email
+        form.recommenderName = user?.displayName
+        form.recommendTime = date
+        axios.post('http://localhost:4545/add-recommendations', form)
+            .then(res => {
+                if (res.data.insertedId) {
+                    toast.success('Recommendation added successfully done !')
+                }
+            })
+
     };
     const [allRecommendation, setAllRecommendation] = useState([])
     useEffect(() => {
         axios.get(`http://localhost:4545/allRecommendation?id=${id}`)
             .then(res => {
-                console.log(res.data);
                 setAllRecommendation(res.data)
             })
     }, [])
@@ -133,10 +126,12 @@ const QueryDetails = () => {
                 <h2 className="text-xl font-semibold text-gray-700 mb-4">All Recommendations</h2>
                 <div className="space-y-4">
                     {allRecommendation.map((rec, idx) => (
-                        <div key={idx} className="p-4 border rounded-lg">
-                            <h3 className="font-semibold text-lg">{rec.recommendationTitle}</h3>
-                            <p className="text-sm text-gray-500">Recommended by: {rec.recommenderName}</p>
-                            <p className="mt-2">{rec.recommendationReason}</p>
+                        <div key={idx} className="p-4 border rounded-lg flex justify-between">
+                            <div>
+                                <h3 className="font-semibold text-lg">{rec.recommendationTitle}</h3>
+                                <p className="text-sm text-gray-500">Recommended by: {rec.recommenderName}</p>
+                                <p className="mt-2">{rec.recommendationReason}</p>
+                            </div>
                             {rec.recommendedProductImage && (
                                 <img
                                     src={rec.recommendedProductImage}
