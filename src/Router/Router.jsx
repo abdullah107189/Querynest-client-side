@@ -7,7 +7,7 @@ import Login from "../pages/Authenticaion/Login/Login";
 import Register from "../pages/Authenticaion/Register/Register";
 import AddQueries from "../pages/AddQueries/AddQueries";
 import MyQueries from "../pages/MyQueries/MyQueries";
-
+import QueriesDetails from "../pages/QueriesDetails/QueriesDetails";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -24,6 +24,10 @@ const Router = createBrowserRouter([
             {
                 path: '/add-queries',
                 element: <AddQueries></AddQueries>
+            },
+            {
+                path: '/querie-details/:id',
+                element: <QueriesDetails></QueriesDetails>,
             },
             {
                 path: '/my-queries',
