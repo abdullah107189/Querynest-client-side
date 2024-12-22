@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const AddQueries = () => {
     const { user } = useContext(AuthContext)
-    const date = format(new Date(), 'P')
+    // const date = format(new Date(), 'P')
+    const date = new Date()
     const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
