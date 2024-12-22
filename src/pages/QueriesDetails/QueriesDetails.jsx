@@ -8,6 +8,8 @@ const QueryDetails = () => {
     const { user } = useContext(AuthContext)
     const { id } = useParams()
     const [queryData, setQueryData] = useState([])
+    const [allRecommendation, setAllRecommendation] = useState([])
+
     useEffect(() => {
         axios.get(`http://localhost:4545/querie-details/${id}`)
             .then(res => {
@@ -32,15 +34,15 @@ const QueryDetails = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success('Recommendation added successfully done !')
-                    axios.get(`http://localhost:4545/querie-details/${id}`)
+
+                    axios.get(`http://localhost:4545/allRecommendation?id=${id}`)
                         .then(res => {
-                            setQueryData(res.data)
+                            setAllRecommendation(res.data)
                         })
                 }
             })
 
     };
-    const [allRecommendation, setAllRecommendation] = useState([])
     useEffect(() => {
         axios.get(`http://localhost:4545/allRecommendation?id=${id}`)
             .then(res => {
@@ -126,7 +128,7 @@ const QueryDetails = () => {
                 </div>
             </div>
             {/* All Recommendations */}
-            < div className="bg-white shadow-md rounded-lg p-5" >
+            < div className="bg-white shadow-md rounded-lg p-5 mb-5" >
                 <h2 className="text-xl font-semibold text-gray-700 mb-4">All Recommendations</h2>
                 <div className="space-y-4">
                     {allRecommendation.map((rec, idx) => (

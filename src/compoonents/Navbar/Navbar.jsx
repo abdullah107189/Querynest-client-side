@@ -63,7 +63,10 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ?
-                            <button onClick={handlLogout} className="btn">Log-out</button>
+                            <div className="flex gap-2 items-center">
+                                <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                                <button onClick={handlLogout} className="btn">Log-out</button>
+                            </div>
                             :
                             <NavLink to="/login" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Login</NavLink>
 
