@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { format } from "date-fns";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddQueries = () => {
     const { user } = useContext(AuthContext)
     const date = format(new Date(), 'P')
-
+    const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = new FormData(e.target)
@@ -15,6 +18,14 @@ const AddQueries = () => {
         formEntriesData.authorEmail = user?.email
         formEntriesData.uploadDate = date
         formEntriesData.recommendationCount = 0
+        axios.post('http://localhost:4545/add-queries', formEntriesData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    toast.success('Querie add success ')
+                    e.target.reset()
+                    navigate('/my-queries')
+                }
+            })
     }
     return (
         <div className="my-10 border p-4 rounded-xl shadow-lg">
