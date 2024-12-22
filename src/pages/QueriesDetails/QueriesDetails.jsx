@@ -32,6 +32,10 @@ const QueryDetails = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success('Recommendation added successfully done !')
+                    axios.get(`http://localhost:4545/querie-details/${id}`)
+                        .then(res => {
+                            setQueryData(res.data)
+                        })
                 }
             })
 

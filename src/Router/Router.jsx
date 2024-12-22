@@ -8,6 +8,8 @@ import Register from "../pages/Authenticaion/Register/Register";
 import AddQueries from "../pages/AddQueries/AddQueries";
 import MyQueries from "../pages/MyQueries/MyQueries";
 import QueriesDetails from "../pages/QueriesDetails/QueriesDetails";
+import PrivetRoute from "../route/PrivetRoute";
+import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -23,22 +25,22 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/add-queries',
-                element: <AddQueries></AddQueries>
+                element: <PrivetRoute><AddQueries></AddQueries></PrivetRoute>
             },
             {
                 path: '/querie-details/:id',
-                element: <QueriesDetails></QueriesDetails>,
+                element: <PrivetRoute><QueriesDetails></QueriesDetails></PrivetRoute>,
             },
             {
                 path: '/my-queries',
-                element: <MyQueries></MyQueries>
-            },
-            {
-                path: '/recommend-for-me',
-                element: <Home></Home>
+                element: <PrivetRoute><MyQueries></MyQueries></PrivetRoute>
             },
             {
                 path: '/my-recommend',
+                element: <PrivetRoute><MyRecommendation></MyRecommendation></PrivetRoute>
+            },
+            {
+                path: '/recommend-for-me',
                 element: <Home></Home>
             },
             {

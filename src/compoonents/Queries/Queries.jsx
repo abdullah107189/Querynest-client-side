@@ -1,20 +1,16 @@
-import { useContext, useEffect, useState } from "react"
-import { AuthContext } from "../../Provider/AuthProvider"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 
 const Queries = () => {
-    const { user } = useContext(AuthContext)
     const [queries, setQueries] = useState([])
     useEffect(() => {
-        if (user) {
-            axios.get(`http://localhost:4545/my-queries?email=${user?.email}`)
-                .then(res => {
-                    setQueries(res.data)
-                })
-        }
-    }, [user])
+        axios.get(`http://localhost:4545/my-queries`)
+            .then(res => {
+                setQueries(res.data)
+            })
+    }, [])
 
     return (
         <div className="my-10">

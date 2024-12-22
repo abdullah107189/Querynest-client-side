@@ -3,10 +3,11 @@ import { createContext, useEffect, useState } from "react";
 import auth from "../frebase/firebase.config";
 
 export const AuthContext = createContext(null)
+
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const [authLoading, setAuthLoading] = useState(true)
 
     const provider = new GoogleAuthProvider();
 
@@ -30,14 +31,15 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setAuthLoading(true)
             if (currentUser) {
                 setUser(currentUser)
                 // console.log(currentUser);
-                setLoading(false)
+                setAuthLoading(false)
             } else {
 
                 setUser(null)
-                setLoading(false)
+                setAuthLoading(false)
             }
         });
         return () => {
@@ -49,7 +51,7 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         createUser,
-        loading,
+        authLoading,
         updateName,
         logoutUser,
         logInUser,

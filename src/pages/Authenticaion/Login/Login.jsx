@@ -1,22 +1,22 @@
 import logo from '../../../assets/queryNest_logo.png'
 import googleLogo from '../../../assets/google.png'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 const Login = () => {
+    const location = useLocation()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { logInUser, createUserWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate()
-
-
+    let from = location.state?.pathname || "/";
     const handleLoginWithGoogle = () => {
         createUserWithGoogle()
             .then(res => {
                 if (res.user) {
                     toast.success('Log-in With Google successfully done !')
-                    navigate('/')
+                    navigate(from, { replace: true });
                 }
             })
             .catch(error => {
@@ -31,7 +31,7 @@ const Login = () => {
             .then(res => {
                 if (res.user) {
                     toast.success('Log-in successfully done !')
-                    navigate('/')
+                    navigate(from, { replace: true });
                 }
             })
             .catch(error => {

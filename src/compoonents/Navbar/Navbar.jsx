@@ -15,6 +15,7 @@ const Navbar = () => {
                 toast.err(err.message)
             })
     }
+
     return (
         <div className="px-4">
             <div className="navbar bg-base-100  p-0">
