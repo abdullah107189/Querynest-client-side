@@ -16,9 +16,9 @@ const Navbar = () => {
             })
     }
     return (
-        <div>
+        <div className="">
             <div className="navbar bg-base-100  p-0">
-                <div className="navbar-start">
+                <div className="navbar-start z-30 ">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
@@ -36,7 +36,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3">
+                            className="z-30 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 ">
                             <NavLink to="/" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Home</NavLink>
                             <NavLink to="/queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Queries</NavLink>
                             <NavLink to="/add-queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Add Queries</NavLink>

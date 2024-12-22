@@ -68,7 +68,7 @@ const Register = () => {
 
     return (
         <div className="flex py-4 items-center justify-center bg-gray-100">
-            <div className="w-1/2 h-full p-5 bg-gray-200 rounded-lg shadow-lg flex flex-col items-center">
+            <div className="w-2/3 h-full p-5 bg-gray-200 rounded-lg shadow-lg flex flex-col items-center">
                 <div className='flex flex-col items-center'>
                     <img className='w-[150px] object-contain' src={logo} alt="" />
                     <p className="text-lg mb-3 text-center">

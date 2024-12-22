@@ -1,0 +1,43 @@
+.custom-pagination {
+    background-color: #969696;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    top: -40px;
+    position: relative;
+  }
+
+  .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: 10px;
+      position: absolute;
+      width: 100%;
+    }
+    
+  .swiper-pagination-bullet-active {
+    background-color: #04d800;
+  }
+  
+  @media (min-width: 1024px) {
+    .minH {
+      min-height: calc(100vh - 80px);
+      padding: 0;
+    }
+  }
+  .backgroundImage1{
+    background-image: url('../../assets/slider2.jpg');
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-size: cover;
+}
