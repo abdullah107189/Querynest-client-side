@@ -5,6 +5,7 @@ import './slider.css'
 import { Pagination, Autoplay } from 'swiper/modules';
 import celebrat from '../../assets/banner_slider.png'
 import banner2 from '../../assets/slider3.jpg'
+import { Link } from 'react-router-dom';
 const Slider = () => {
     return (
         <Swiper
@@ -36,11 +37,12 @@ const Slider = () => {
                         <p className="text-lg md:text-xl mb-6">
                             A platform to ask questions, share insights, and find solutions together.
                         </p>
-                        <button
+                        <Link
+                            to={'/add-queries'}
                             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg"
                         >
                             Add Queries
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </SwiperSlide>

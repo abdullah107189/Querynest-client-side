@@ -5,6 +5,8 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Authenticaion/Login/Login";
 import Register from "../pages/Authenticaion/Register/Register";
+import AddQueries from "../pages/AddQueries/AddQueries";
+import MyQueries from "../pages/MyQueries/MyQueries";
 
 const Router = createBrowserRouter([
     {
@@ -21,14 +23,14 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/add-queries',
-                element: <Home></Home>
-            },
-            {
-                path: '/recommend-for-me',
-                element: <Home></Home>
+                element: <AddQueries></AddQueries>
             },
             {
                 path: '/my-queries',
+                element: <MyQueries></MyQueries>
+            },
+            {
+                path: '/recommend-for-me',
                 element: <Home></Home>
             },
             {
