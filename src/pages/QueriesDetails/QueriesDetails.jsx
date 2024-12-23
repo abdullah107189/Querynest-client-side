@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { format } from 'date-fns';
 
 const QueryDetails = () => {
     const { user } = useContext(AuthContext)
@@ -131,21 +132,27 @@ const QueryDetails = () => {
             {/* All Recommendations */}
             < div className="bg-white shadow-md rounded-lg p-5 mb-5" >
                 <h2 className="text-xl font-semibold text-gray-700 mb-4">All Recommendations</h2>
-                <div className="space-y-4">
+                <div className="space-y-4 Z">
                     {allRecommendation.map((rec, idx) => (
-                        <div key={idx} className="p-4 border rounded-lg flex justify-between">
-                            <div>
+                        <div key={idx} className="p-4 border-2 bg-blue-50  rounded-lg md:flex justify-between gap-3 items-center">
+                            <div className='w-full'>
                                 <h3 className="font-semibold text-lg">{rec.recommendationTitle}</h3>
                                 <p className="text-sm text-gray-500">Recommended by: {rec.recommenderName}</p>
-                                <p className="mt-2">{rec.recommendationReason}</p>
+                                <p className="text-sm text-gray-500">Recommended Time: {format(new Date(rec.recommendTime), 'P')}</p>
+
                             </div>
-                            {rec.recommendedProductImage && (
-                                <img
-                                    src={rec.recommendedProductImage}
-                                    alt={rec.recommendedProductName}
-                                    className="mt-3 w-32 h-32 object-cover rounded-lg"
-                                />
-                            )}
+                            <div className='w-full'>
+                                <p className="mt-2 px-3 ">{rec.recommendationReason}</p>
+                            </div>
+                            <div className="w-full flex items-center justify-center">
+                                {rec.recommendedProductImage && (
+                                    <img
+                                        src={rec.recommendedProductImage}
+                                        alt={rec.recommendedProductName}
+                                        className="mt-3 max-w-32 max-h-32 object-cover rounded-lg"
+                                    />
+                                )}
+                            </div>
                         </div>
                     ))}
                 </div>

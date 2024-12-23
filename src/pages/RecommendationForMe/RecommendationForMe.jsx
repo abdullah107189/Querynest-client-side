@@ -24,7 +24,7 @@ const RecommendationForMe = () => {
                                 <th className="border px-4 py-2">My Product</th>
                                 <th className="border px-4 py-2">Recommend Product</th>
                                 <th className="border px-4 py-2">Recommend Image</th>
-                                <th className="border px-4 py-2">Recommend Email</th>
+                                <th className="border px-4 py-2">Recommender Email</th>
                                 <th className="border px-4 py-2">Recommend Details</th>
                             </tr>
                         </thead>

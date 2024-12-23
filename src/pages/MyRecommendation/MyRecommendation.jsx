@@ -11,7 +11,6 @@ const MyRecommendation = () => {
                 .then(res => {
                     setMyRecommendtaion(res.data)
                 })
-                .catch(err => console.error(err));
         }
     }, [])
     const handleDelete = (id, queryId) => {
@@ -50,15 +49,17 @@ const MyRecommendation = () => {
                     {/* head */}
                     <thead>
                         <tr>
+                            <th className="border px-4 py-2">Product Author</th>
                             <th className="border px-4 py-2">Title</th>
                             <th className="border px-4 py-2">Product Name</th>
-                            <th className="border px-4 py-2">Image</th>
+                            <th className="border px-4 py-2">Recommend Product Image</th>
                             <th className="border px-4 py-2">Action</th>
-                        </tr>   
+                        </tr>
                     </thead>
                     <tbody>
                         {myRecommendation.map((rec, index) => (
                             <tr key={index}>
+                                <td className="border">{rec.userEmail}</td>
                                 <td className="border">{rec.recommendationTitle}</td>
                                 <td className="border">{rec.recommendedProductName}</td>
                                 <td className="border">
