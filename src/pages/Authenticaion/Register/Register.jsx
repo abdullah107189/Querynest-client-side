@@ -15,10 +15,6 @@ const Register = () => {
     const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Name:', name);
-        console.log('Photo URL:', photoUrl);
-        console.log('Email:', email);
-        console.log('Password:', password);
 
         if (password.length < 6) {
             return toast.error("Password must be at least 6 characters long.");
@@ -31,12 +27,10 @@ const Register = () => {
         if (!/[a-z]/.test(password)) {
             return toast.error("Password must contain at least one lowercase letter.");
         }
-        toast.success("Password is valid!");
 
         createUser(email, password)
             .then(res => {
                 if (res.user) {
-                    console.log(res.user)
                     updateName(name, photoUrl)
                         .then(() => {
                             toast.success('Register Success!')
@@ -56,12 +50,11 @@ const Register = () => {
         createUserWithGoogle()
             .then(res => {
                 if (res.user) {
-                    toast.success('Log-in With Google successfully done !')
+                    toast.success('Register With Google successfully done !')
                     navigate('/')
                 }
             })
             .catch(error => {
-                console.log(error.message);
                 toast.error(error.message)
             })
     }

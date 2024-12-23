@@ -3,10 +3,10 @@ import axios from "axios"
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 
-const Queries = () => {
+const AllQueries = () => {
     const [queries, setQueries] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:4545/all-queries?limit=6`)
+        axios.get(`http://localhost:4545/all-queries`)
             .then(res => {
                 setQueries(res.data)
             })
@@ -40,4 +40,4 @@ const Queries = () => {
     );
 };
 
-export default Queries;
+export default AllQueries;

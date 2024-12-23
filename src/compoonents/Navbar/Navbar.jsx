@@ -35,30 +35,45 @@ const Navbar = () => {
                                     d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul
-                            tabIndex={0}
-                            className="z-30 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 ">
-                            <NavLink to="/" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Home</NavLink>
-                            <NavLink to="/queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Queries</NavLink>
-                            <NavLink to="/add-queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Add Queries</NavLink>
-                            <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Recommendations For Me</NavLink>
-                            <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Queries</NavLink>
-                            <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Recommendations</NavLink>
-                        </ul>
+                        {
+                            user ? <ul
+                                tabIndex={0}
+                                className="z-30 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 ">
+                                <NavLink to="/" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Home</NavLink>
+                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Queries</NavLink>
+                                <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Recommendations For Me</NavLink>
+                                <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Queries</NavLink>
+                                <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Recommendations</NavLink>
+                            </ul>
+                                :
+                                <ul
+                                    tabIndex={0}
+                                    className="z-30 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 ">
+                                    <NavLink to="/" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Home</NavLink>
+                                    <NavLink to="/queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Queries</NavLink>
+                                </ul>
+                        }
                     </div>
                     <a href="/">
                         <img className="w-16 h-16 object-contain" src={logo} alt="" />
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 gap-3">
-                        <NavLink to="/" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Home</NavLink>
-                        <NavLink to="/queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Queries</NavLink>
-                        <NavLink to="/add-queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Add Queries</NavLink>
-                        <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Recommendations For Me</NavLink>
-                        <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Queries</NavLink>
-                        <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Recommendations</NavLink>
-                    </ul>
+                    {
+                        user ?
+                            <ul className="menu menu-horizontal px-1 gap-3">
+                                <NavLink to="/" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Home</NavLink>
+                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Queries</NavLink>
+                                <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Recommendations For Me</NavLink>
+                                <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Queries</NavLink>
+                                <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>My Recommendations</NavLink>
+                            </ul>
+                            :
+                            <ul className="menu menu-horizontal px-1 gap-3">
+                                <NavLink to="/" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Home</NavLink>
+                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? "btn btn-accent" : "btn"} btn`}>Queries</NavLink>
+                            </ul>
+                    }
                 </div>
                 <div className="navbar-end">
                     {
