@@ -8,7 +8,6 @@ const RecommendationForMe = () => {
         if (user) {
             axios.get(`http://localhost:4545/recommendation-for-me/${user.email}`)
                 .then(res => {
-                    console.log(res.data);
                     setRecommendData(res.data)
                 })
         }

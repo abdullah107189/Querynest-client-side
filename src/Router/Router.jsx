@@ -11,10 +11,12 @@ import QueriesDetails from "../pages/QueriesDetails/QueriesDetails";
 import PrivetRoute from "../route/PrivetRoute";
 import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
 import RecommendationForMe from "../pages/RecommendationForMe/RecommendationForMe";
+import Page404 from "../compoonents/Page404/Page404";
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        // errorElement: <Page404></Page404>,
         children: [
             {
                 path: '/',
@@ -55,5 +57,9 @@ const Router = createBrowserRouter([
 
         ]
     },
+    {
+        path: '*',
+        element: <Page404></Page404>
+    }
 ]);
 export default Router;
