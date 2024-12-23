@@ -65,6 +65,7 @@ const QueryDetails = () => {
                         </div>
                         <div className="mt-5 flex items-center">
                             <img
+                                referrerPolicy='no-referrer'
                                 src={queryData?.product_url}
                                 alt={queryData?.product_name}
                                 className="w-52 h-52 object-cover rounded-lg border"
