@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import { TfiGoogle, TfiMenuAlt } from "react-icons/tfi";
+import { TfiMenuAlt } from "react-icons/tfi";
 import { CgMenuGridR } from "react-icons/cg";
 
 const AllQueries = () => {
