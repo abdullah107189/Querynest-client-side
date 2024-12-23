@@ -48,7 +48,6 @@ const MyQueries = () => {
 
             }
         });
-
     }
     return (
         <div>

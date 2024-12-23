@@ -17,7 +17,7 @@ const Queries = () => {
             <h1 className="md:text-4xl text-2xl font-bold text-center mb-3">Recent Queries</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {queries.map(query => (
-                    <Link to={`/querie-details/${query?._id}`}
+                    <div
                         key={query._id}
                         className="relative border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition"
                     >
@@ -30,9 +30,10 @@ const Queries = () => {
                         <div className="p-4 text-center">
                             <h2 className="text-lg font-bold">{query.product_name}</h2>
                             <p className="text-sm mb-3 text-gray-600">{query.query_title.substring(0, 50)}...</p>
-                            <p className="mb-2">RecommendationCount : {query.recommendationCount}</p>
+                            <p className="mb-4">RecommendationCount : {query.recommendationCount}</p>
+                            <Link className="px-5 py-2 rounded-lg border bg-gray-100 hover:bg-gray-200" to={`/querie-details/${query?._id}`}>Do Recommend</Link>
                         </div>
-                    </Link>
+                    </div>
                 ))}
             </div>
         </div>

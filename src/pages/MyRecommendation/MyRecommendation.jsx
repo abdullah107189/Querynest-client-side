@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from 'axios'
-import toast from 'react-hot-toast'
 import Swal from "sweetalert2";
 const MyRecommendation = () => {
     const { user } = useContext(AuthContext)
@@ -55,7 +54,7 @@ const MyRecommendation = () => {
                             <th className="border px-4 py-2">Product Name</th>
                             <th className="border px-4 py-2">Image</th>
                             <th className="border px-4 py-2">Action</th>
-                        </tr>
+                        </tr>   
                     </thead>
                     <tbody>
                         {myRecommendation.map((rec, index) => (

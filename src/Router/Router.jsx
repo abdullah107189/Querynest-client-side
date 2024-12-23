@@ -10,6 +10,7 @@ import MyQueries from "../pages/MyQueries/MyQueries";
 import QueriesDetails from "../pages/QueriesDetails/QueriesDetails";
 import PrivetRoute from "../route/PrivetRoute";
 import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
+import RecommendationForMe from "../pages/RecommendationForMe/RecommendationForMe";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -41,7 +42,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/recommend-for-me',
-                element: <Home></Home>
+                element: <RecommendationForMe></RecommendationForMe>
             },
             {
                 path: '/login',
