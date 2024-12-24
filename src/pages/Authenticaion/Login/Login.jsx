@@ -16,14 +16,11 @@ const Login = () => {
         createUserWithGoogle()
             .then(res => {
                 if (res.user) {
-                    toast.success('Log-in With Google successfully done !')
                     navigate(from, { replace: true });
 
                     const user = { email: res.user.email }
-                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
-                        .then(res => {
-                            console.log(res.data);
-                        })
+                    axios.post('https://query-nest-server-side.vercel.app/jwt-singIn', user, { withCredentials: true })
+                    toast.success('Log-in With Google successfully done !')
                 }
             })
             .catch(error => {
@@ -39,7 +36,7 @@ const Login = () => {
                     toast.success('Log-in successfully done !')
                     navigate(from, { replace: true });
                     const user = { email: res.user.email }
-                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
+                    axios.post('https://query-nest-server-side.vercel.app/jwt-singIn', user, { withCredentials: true })
                         .then(() => {
                         })
                 }

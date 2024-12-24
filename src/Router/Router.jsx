@@ -50,7 +50,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/recommend-for-me',
-                element: <RecommendationForMe></RecommendationForMe>
+                element: <PrivetRoute><RecommendationForMe></RecommendationForMe></PrivetRoute>
             },
             {
                 path: '/login',

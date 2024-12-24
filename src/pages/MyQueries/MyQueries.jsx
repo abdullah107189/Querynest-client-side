@@ -1,27 +1,29 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, } from "react-router-dom";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
 import LoadingBar from "../../compoonents/LoadingBar/LoadingBar";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const MyQueries = () => {
     const { user } = useContext(AuthContext)
     const [queries, setQueries] = useState([])
     const [fetchLoading, setFetchLoading] = useState(false)
+    const axiosInstance = useAxiosSecure()
     useEffect(() => {
         if (user) {
             setFetchLoading(true)
-            axios.get(`http://localhost:4545/my-queries?email=${user?.email}`, { withCredentials: true })
+            axiosInstance.get(`/my-queries?email=${user?.email}`)
                 .then(res => {
-                    setQueries(res.data)
+                    setQueries(res.data);
                     setFetchLoading(false)
                 })
-                .catch((error) => {
-                    if (error) {
+                .catch(err => {
+                    if (err) {
                         setFetchLoading(false)
                     }
                 })
+
         }
     }, [user])
 
@@ -36,7 +38,7 @@ const MyQueries = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:4545/my-querie/${id}`)
+                axiosInstance.delete(`/my-querie/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -45,9 +47,15 @@ const MyQueries = () => {
                                 icon: "success"
                             });
 
-                            axios.get(`http://localhost:4545/my-queries?email=${user?.email}`)
+                            axiosInstance.get(`/my-queries?email=${user?.email}`)
                                 .then(res => {
-                                    setQueries(res.data)
+                                    setQueries(res.data);
+                                    setFetchLoading(false)
+                                })
+                                .catch(err => {
+                                    if (err) {
+                                        setFetchLoading(false)
+                                    }
                                 })
                         }
                     })
@@ -72,7 +80,7 @@ const MyQueries = () => {
                                 </Link>
                             </div>
                             :
-                            queries.map(query => (
+                            queries?.map(query => (
                                 <div
                                     key={query._id}
                                     className="relative border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition"

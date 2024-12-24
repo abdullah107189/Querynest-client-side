@@ -1,14 +1,23 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import axios from 'axios'
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const RecommendationForMe = () => {
     const { user } = useContext(AuthContext)
     const [recommendData, setRecommendData] = useState([])
+    const axiosInstance = useAxiosSecure()
+    const [fetchLoding, setFetchLoading] = useState(false)
     useEffect(() => {
         if (user) {
-            axios.get(`http://localhost:4545/recommendation-for-me/${user.email}`)
+            setFetchLoading(true)
+            axiosInstance.get(`/recommendation-for-me/${user.email}`)
                 .then(res => {
-                    setRecommendData(res.data)
+                    setRecommendData(res.data);
+                    setFetchLoading(false)
+                })
+                .catch(err => {
+                    if (err) {
+                        setFetchLoading(false)
+                    }
                 })
         }
     }, [user])
@@ -28,20 +37,34 @@ const RecommendationForMe = () => {
                                 <th className="border px-4 py-2">Recommend Details</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {recommendData.map((rec, index) => (
-                                <tr key={index}>
-                                    <td className="border">{rec.productName}</td>
-
-                                    <td className="border">{rec.recommendedProductName}</td>
-                                    <td className="border">
-                                        <img src={rec.recommendedProductImage} alt={rec.recommendedProductName} className="min-w-20 h-20 mx-auto object-cover rounded" />
-                                    </td>
-                                    <td className="border">{rec.recommenderEmail}</td>
-                                    <td className="border">{rec.recommendationReason}</td>
+                        {
+                            fetchLoding ?
+                                <tr className="text-center">
+                                    <td className="border text-3xl font-bold" colSpan={5}>Loading...</td>
                                 </tr>
-                            ))}
-                        </tbody>
+                                :
+                                recommendData.length === 0 ?
+                                    <tr className="text-center">
+                                        <td className="border text-3xl font-bold" colSpan={5}>No Recommend data here</td>
+                                    </tr>
+                                    :
+                                    <tbody>
+                                        {
+                                            recommendData.map((rec, index) => (
+                                                <tr key={index}>
+                                                    <td className="border">{rec.productName}</td>
+
+                                                    <td className="border">{rec.recommendedProductName}</td>
+                                                    <td className="border">
+                                                        <img src={rec.recommendedProductImage} alt={rec.recommendedProductName} className="min-w-20 h-20 mx-auto object-cover rounded" />
+                                                    </td>
+                                                    <td className="border">{rec.recommenderEmail}</td>
+                                                    <td className="border">{rec.recommendationReason}</td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                        }
                     </table>
                 </div>
             </div>

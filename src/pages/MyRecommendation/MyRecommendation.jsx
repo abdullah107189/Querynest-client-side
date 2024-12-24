@@ -2,14 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from 'axios'
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const MyRecommendation = () => {
     const { user } = useContext(AuthContext)
     const [myRecommendation, setMyRecommendtaion] = useState([])
+    const axiosInstance = useAxiosSecure()
+    const [fetchLoding, setFetchLoading] = useState(false)
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:4545/my-recommendation/${user?.email}`)
+            setFetchLoading(true)
+            axiosInstance.get(`/recommendation-for-me/${user.email}`)
                 .then(res => {
-                    setMyRecommendtaion(res.data)
+                    setMyRecommendtaion(res.data);
+                    setFetchLoading(false)
+                })
+                .catch(err => {
+                    if (err) {
+                        setFetchLoading(false)
+                    }
                 })
         }
     }, [])
@@ -24,7 +34,7 @@ const MyRecommendation = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:4545/my-recommendation/${id}?queryId=${queryId}`,)
+                axios.delete(`https://query-nest-server-side.vercel.app/my-recommendation/${id}?queryId=${queryId}`,)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -32,7 +42,7 @@ const MyRecommendation = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            axios.get(`http://localhost:4545/my-recommendation/${user?.email}`)
+                            axios.get(`https://query-nest-server-side.vercel.app/my-recommendation/${user?.email}`)
                                 .then(res => {
                                     setMyRecommendtaion(res.data)
                                 })
@@ -56,28 +66,43 @@ const MyRecommendation = () => {
                             <th className="border px-4 py-2">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {myRecommendation.map((rec, index) => (
-                            <tr key={index}>
-                                <td className="border">{rec.userEmail}</td>
-                                <td className="border">{rec.recommendationTitle}</td>
-                                <td className="border">{rec.recommendedProductName}</td>
-                                <td className="border">
-                                    <img src={rec.recommendedProductImage} alt={rec.recommendedProductName} className="min-w-20 h-20 mx-auto object-cover rounded" />
-                                </td>
-                                <td className="border">
-                                    <div className="flex items-center justify-center">
-                                        <button
-                                            onClick={() => handleDelete(rec._id, rec.queryId)}
-                                            className="bg-red-400 hover:bg-red-500 text-white px-5 py-2 rounded-lg"
-                                        >
-                                            Delete
-                                        </button>
-                                    </div>
-                                </td>
+                    {
+                        fetchLoding ?
+                            <tr className="text-center">
+                                <td className="border text-3xl font-bold" colSpan={5}>Loading...</td>
                             </tr>
-                        ))}
-                    </tbody>
+                            :
+                            myRecommendation.length === 0 ?
+                                <tbody>
+                                    <tr className="text-center">
+                                        <td className="border text-3xl font-bold" colSpan={5}>There is no recommendation data</td>
+                                    </tr>
+                                </tbody>
+                                :
+                                <tbody>
+                                    {myRecommendation.map((rec, index) => (
+                                        <tr key={index}>
+                                            <td className="border">{rec.userEmail}</td>
+                                            <td className="border">{rec.recommendationTitle}</td>
+                                            <td className="border">{rec.recommendedProductName}</td>
+                                            <td className="border">
+                                                <img src={rec.recommendedProductImage} alt={rec.recommendedProductName} className="min-w-20 h-20 mx-auto object-cover rounded" />
+                                            </td>
+                                            <td className="border">
+                                                <div className="flex items-center justify-center">
+                                                    <button
+                                                        onClick={() => handleDelete(rec._id, rec.queryId)}
+                                                        className="bg-red-400 hover:bg-red-500 text-white px-5 py-2 rounded-lg"
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                    }
+
                 </table>
             </div>
         </div>

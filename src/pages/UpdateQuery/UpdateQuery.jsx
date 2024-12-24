@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
-// import { format } from "date-fns";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateQuery = () => {
     const [queryData, setQueryData] = useState([])
     const { id } = useParams()
+    const axiosInstance = useAxiosSecure()
+
     useEffect(() => {
-        axios.get(`http://localhost:4545/querie-details/${id}`)
+        axiosInstance.get(`/querie-details/${id}`)
             .then(res => {
                 setQueryData(res.data)
-            })
-            .catch(error => {
-                console.log(error.message);
             })
     }, [])
 
@@ -23,16 +21,13 @@ const UpdateQuery = () => {
         const form = new FormData(e.target)
         const formEntriesData = Object.fromEntries(form.entries())
 
-        axios.patch(`http://localhost:4545/query-update/${id}`, formEntriesData)
+        axiosInstance.patch(`/query-update/${id}`, formEntriesData)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     toast.success('Querie update success ')
                     e.target.reset()
                     navigate('/my-queries')
                 }
-            })
-            .catch(err => {
-                console.log(err.message);
             })
     }
     return (

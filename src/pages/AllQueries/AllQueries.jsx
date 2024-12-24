@@ -10,7 +10,7 @@ const AllQueries = () => {
     const [toggle, setToggle] = useState(true)
     const [searchValue, setSearchValue] = useState('')
     useEffect(() => {
-        axios.get(`http://localhost:4545/all-queries?search=${searchValue}`)
+        axios.get(`https://query-nest-server-side.vercel.app/all-queries?search=${searchValue}`)
             .then(res => {
                 setQueries(res.data)
             })

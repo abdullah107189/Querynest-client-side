@@ -4,15 +4,17 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { format } from 'date-fns';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const QueryDetails = () => {
     const { user } = useContext(AuthContext)
     const { id } = useParams()
     const [queryData, setQueryData] = useState([])
     const [allRecommendation, setAllRecommendation] = useState([])
+    const axiosInstance = useAxiosSecure()
 
     useEffect(() => {
-        axios.get(`http://localhost:4545/querie-details/${id}`)
+        axiosInstance.get(`/querie-details/${id}`)
             .then(res => {
                 setQueryData(res.data)
             })
@@ -31,12 +33,12 @@ const QueryDetails = () => {
         form.recommenderEmail = user?.email
         form.recommenderName = user?.displayName
         form.recommendTime = date
-        axios.post('http://localhost:4545/add-recommendations', form)
+        axios.post('https://query-nest-server-side.vercel.app/add-recommendations', form)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success('Recommendation added successfully done !')
 
-                    axios.get(`http://localhost:4545/allRecommendation?id=${id}`)
+                    axios.get(`https://query-nest-server-side.vercel.app/allRecommendation?id=${id}`)
                         .then(res => {
                             setAllRecommendation(res.data)
                         })
@@ -45,7 +47,7 @@ const QueryDetails = () => {
 
     };
     useEffect(() => {
-        axios.get(`http://localhost:4545/allRecommendation?id=${id}`)
+        axios.get(`https://query-nest-server-side.vercel.app/allRecommendation?id=${id}`)
             .then(res => {
                 setAllRecommendation(res.data)
             })

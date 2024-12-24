@@ -4,9 +4,8 @@ import axios from 'axios';
 const PopularProducts = () => {
     const [popularQueries, setPopularQueries] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:4545/popular-queries')
+        axios.get('https://query-nest-server-side.vercel.app/popular-queries')
             .then(res => setPopularQueries(res.data))
-            .catch(err => console.log(err.message));
     }, []);
 
     return (
