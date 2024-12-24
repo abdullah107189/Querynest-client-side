@@ -3,6 +3,7 @@ import googleLogo from '../../../assets/google.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import axios from 'axios'
 import toast from 'react-hot-toast';
 const Login = () => {
     const location = useLocation()
@@ -17,6 +18,12 @@ const Login = () => {
                 if (res.user) {
                     toast.success('Log-in With Google successfully done !')
                     navigate(from, { replace: true });
+
+                    const user = { email: res.user.email }
+                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
+                        .then(res => {
+                            console.log(res.data);
+                        })
                 }
             })
             .catch(error => {
@@ -31,6 +38,10 @@ const Login = () => {
                 if (res.user) {
                     toast.success('Log-in successfully done !')
                     navigate(from, { replace: true });
+                    const user = { email: res.user.email }
+                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
+                        .then(() => {
+                        })
                 }
             })
             .catch(error => {

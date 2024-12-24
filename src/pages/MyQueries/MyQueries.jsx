@@ -12,7 +12,7 @@ const MyQueries = () => {
     useEffect(() => {
         if (user) {
             setFetchLoading(true)
-            axios.get(`http://localhost:4545/my-queries?email=${user?.email}`)
+            axios.get(`http://localhost:4545/my-queries?email=${user?.email}`, { withCredentials: true })
                 .then(res => {
                     setQueries(res.data)
                     setFetchLoading(false)

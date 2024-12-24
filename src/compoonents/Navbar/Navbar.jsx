@@ -3,13 +3,17 @@ import logo from '../../assets/queryNest_logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
     const handlLogout = () => {
         logoutUser()
             .then(() => {
-                toast.success('Log out successfully done !')
+                axios.post('http://localhost:4545/jwt-logout', user, { withCredentials: true })
+                    .then(() => {
+                    })
+                    toast.success('Log out successfully done !')
             })
             .catch(err => {
                 toast.err(err.message)

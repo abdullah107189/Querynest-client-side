@@ -4,6 +4,7 @@ import googleLogo from '../../../assets/google.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 const Register = () => {
     const { createUser, updateName, createUserWithGoogle } = useContext(AuthContext)
@@ -35,6 +36,10 @@ const Register = () => {
                         .then(() => {
                             toast.success('Register Success!')
                             navigate('/')
+                            const user = { email: res.user.email }
+                            axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
+                                .then(() => {
+                                })
                         })
                         .catch(error => {
                             toast.error(error.message)
@@ -52,6 +57,10 @@ const Register = () => {
                 if (res.user) {
                     toast.success('Register With Google successfully done !')
                     navigate('/')
+                    const user = { email: res.user.email }
+                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
+                        .then(() => {
+                        })
                 }
             })
             .catch(error => {

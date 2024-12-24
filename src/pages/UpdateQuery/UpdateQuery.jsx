@@ -1,15 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useEffect, useState } from "react";
 // import { format } from "date-fns";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateQuery = () => {
-    const { user } = useContext(AuthContext)
     const [queryData, setQueryData] = useState([])
     const { id } = useParams()
-    // const date = format(new Date(), 'P')
     useEffect(() => {
         axios.get(`http://localhost:4545/querie-details/${id}`)
             .then(res => {
