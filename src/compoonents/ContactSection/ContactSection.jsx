@@ -12,10 +12,10 @@ const ContactSection = () => {
     };
 
     return (
-        <div className='minHF'>
-            <h1 className='text-4xl my-10 text-center font-bold'>Contact section</h1>
-            <div className="md:flex  justify-between gap-10">
-                <div className="w-1/2">
+        <div className='minHF my-10'>
+            <h1 className='text-4xl  text-center font-bold mb-5'>Contact section</h1>
+            <div className="md:flex  justify-between gap-10 md:p-0 p-4">
+                <div className="md:w-1/2">
                     <h2 className="text-2xl font-bold mb-4">Send A Message</h2>
                     <form onSubmit={handleSubmit} className="space-y-4 border p-5 rounded-lg">
                         <div>
@@ -70,7 +70,7 @@ const ContactSection = () => {
                         </button>
                     </form>
                 </div>
-                <div className="w-1/2">
+                <div className="md:w-1/2">
                     <h2 className="text-2xl font-bold mb-4">Contact Details</h2>
                     <p className="text-gray-600">
                         Etiam sit amet orci eget eros faucibus tincidunt. Pellentesque commodo eros a enim. Etiam rhoncus. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras sagittis.

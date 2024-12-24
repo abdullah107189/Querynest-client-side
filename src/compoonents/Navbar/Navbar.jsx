@@ -79,7 +79,7 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="flex gap-2 items-center">
-                                <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                                <img referrerPolicy="no-referrer" className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
                                 <button onClick={handlLogout} className="btn">Log-out</button>
                             </div>
                             :

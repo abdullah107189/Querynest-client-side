@@ -13,6 +13,7 @@ import MyRecommendation from "../pages/MyRecommendation/MyRecommendation";
 import RecommendationForMe from "../pages/RecommendationForMe/RecommendationForMe";
 import Page404 from "../compoonents/Page404/Page404";
 import AllQueries from "../pages/AllQueries/AllQueries";
+import UpdateQuery from "../pages/UpdateQuery/UpdateQuery";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -34,6 +35,10 @@ const Router = createBrowserRouter([
             {
                 path: '/querie-details/:id',
                 element: <PrivetRoute><QueriesDetails></QueriesDetails></PrivetRoute>,
+            },
+            {
+                path: '/update-query/:id',
+                element: <PrivetRoute><UpdateQuery></UpdateQuery></PrivetRoute>,
             },
             {
                 path: '/my-queries',

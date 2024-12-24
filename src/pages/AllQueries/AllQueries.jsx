@@ -51,7 +51,7 @@ const AllQueries = () => {
                         <div className={`${toggle ? 'text-center' : 'md:w-1/2 items-start'} p-4 `}>
                             <h2 className="text-lg font-bold">{query.product_name}</h2>
                             <p className="text-sm mb-3 text-gray-600">{toggle ? query.query_title.substring(0, 50) : query.query_title} <span className={`${query.query_title.length > 50 && toggle || 'hidden'}`}>...</span></p>
-                            <p className="mb-4">RecommendationCount : {query.recommendationCount}</p>
+                            <p className="mb-4 font-bold">RecommendationCount : {query.recommendationCount}</p>
                             <Link className="px-5 py-2 rounded-lg border bg-gray-100 hover:bg-gray-200" to={`/querie-details/${query?._id}`}>Do Recommend</Link>
                         </div>
                     </div>
