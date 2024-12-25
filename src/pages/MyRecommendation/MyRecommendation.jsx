@@ -68,9 +68,30 @@ const MyRecommendation = () => {
                     </thead>
                     {
                         fetchLoding ?
-                            <tr className="text-center">
-                                <td className="border text-3xl font-bold" colSpan={5}>Loading...</td>
-                            </tr>
+                            <tbody>
+                                {Array.from({ length: 3 }).map((_, index) => (
+                                    <tr key={index}>
+                                        <td className="border">
+                                            <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
+                                        </td>
+                                        <td className="border">
+                                            <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
+                                        </td>
+                                        <td className="border">
+                                            <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
+                                        </td>
+                                        <td className="border">
+                                            <div className="w-20 h-20 bg-gray-200 animate-pulse rounded mx-auto"></div>
+                                        </td>
+                                        <td className="border">
+                                            <div className="flex items-center justify-center">
+                                                <div className="h-10 w-24 bg-red-300 animate-pulse rounded-md"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+
                             :
                             myRecommendation.length === 0 ?
                                 <tbody>

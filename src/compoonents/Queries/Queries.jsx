@@ -22,9 +22,28 @@ const Queries = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {
                     fetchLoading === true ?
-                        <div className="col-span-3">
-                            <LoadingBar></LoadingBar>
-                        </div>
+
+                        Array.from({ length: 3 }).map((_, idx) => (
+                            <div key={idx} className="relative border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition ">
+                                <div className="px-3 rounded-md bg-blue-100/60 text-blue-500 font-semibold top-1 left-1 absolute flex flex-col">
+                                    <span className="h-4 w-16 bg-blue-300 animate-pulse rounded-md mb-2"></span>
+                                    <span className="h-4 w-12 bg-blue-300 animate-pulse rounded-md"></span>
+                                </div>
+
+                                <div className="w-full h-[200px] bg-gray-200 animate-pulse"></div>
+
+                                <div className="p-4 text-center">
+                                    <div className="h-6 w-3/4 bg-gray-300 animate-pulse rounded-md mb-3 mx-auto"></div>
+                                    <div className="h-4 w-5/6 bg-gray-300 animate-pulse rounded-md mb-3 mx-auto"></div>
+                                    <div className="h-4 w-1/2 bg-gray-300 animate-pulse rounded-md mb-4 mx-auto"></div>
+                                    <div className="flex items-center justify-center gap-2">
+                                        <div className="h-10 w-24 bg-blue-300 animate-pulse rounded-md"></div>
+                                        <div className="h-10 w-24 bg-blue-300 animate-pulse rounded-md"></div>
+                                        <div className="h-10 w-24 bg-blue-300 animate-pulse rounded-md"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
                         :
                         queries.map(query => (
                             <div

@@ -4,7 +4,6 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { CgMenuGridR } from "react-icons/cg";
-import LoadingBar from "../../compoonents/LoadingBar/LoadingBar";
 
 const AllQueries = () => {
     const [queries, setQueries] = useState([])
@@ -38,7 +37,29 @@ const AllQueries = () => {
             </div>
             {
                 fetchLoading ?
-                    <LoadingBar></LoadingBar>
+                    <div className={`grid grid-cols-1 ${toggle ? 'md:grid-cols-2 lg:grid-cols-3' : ''} gap-4 p-4`}>
+                        {Array.from({ length: 6 }).map((_, index) => (
+                            <div
+                                key={index}
+                                className={`relative ${toggle || 'flex justify-between items-center'} border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition`}
+                            >
+                                <div className={`absolute top-1 left-1 px-3 py-1 rounded-md bg-blue-100/60 animate-pulse`}>
+                                    <div className="h-4 w-16 bg-blue-300 rounded animate-pulse"></div>
+                                    <div className="h-4 w-16 bg-blue-300 rounded mt-2 animate-pulse"></div>
+                                </div>
+                                <div className={`${toggle || 'md:w-1/2'}`}>
+                                    <div className="w-full h-[200px] bg-gray-200 animate-pulse"></div>
+                                </div>
+                                <div className={`${toggle ? 'text-center' : 'md:w-1/2 items-start'} p-4`}>
+                                    <div className="h-6 w-3/4 bg-gray-300 rounded mb-2 animate-pulse"></div>
+                                    <div className="h-4 w-full bg-gray-300 rounded mb-3 animate-pulse"></div>
+                                    <div className="h-4 w-1/2 bg-gray-300 rounded mb-4 animate-pulse"></div>
+                                    <div className="px-5 py-2 rounded-lg bg-gray-200 animate-pulse"></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
                     :
                     <div className={`grid grid-cols-1 ${toggle ? 'md:grid-cols-2 lg:grid-cols-3' : ''} gap-4 p-4`}>
                         {queries.map(query => (
