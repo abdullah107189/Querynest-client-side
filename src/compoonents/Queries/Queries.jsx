@@ -22,7 +22,9 @@ const Queries = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {
                     fetchLoading === true ?
-                        <LoadingBar></LoadingBar>
+                        <div className="col-span-3">
+                            <LoadingBar></LoadingBar>
+                        </div>
                         :
                         queries.map(query => (
                             <div
