@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import LoadingBar from "../LoadingBar/LoadingBar";
 
 const Queries = () => {
     const [queries, setQueries] = useState([])

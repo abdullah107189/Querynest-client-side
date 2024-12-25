@@ -13,7 +13,7 @@ const Navbar = () => {
                 axios.post('https://query-nest-server-side.vercel.app/jwt-logout', user, { withCredentials: true })
                     .then(() => {
                     })
-                    toast.success('Log out successfully done !')
+                toast.success('Log out successfully done !')
             })
             .catch(err => {
                 toast.err(err.message)
@@ -21,8 +21,8 @@ const Navbar = () => {
     }
 
     return (
-        <div className="px-4">
-            <div className="navbar bg-base-100  p-0">
+        <div className=" sticky top-0 backdrop-blur-lg bg-white/20 z-50">
+            <div className="navbar">
                 <div className="navbar-start z-30 ">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
