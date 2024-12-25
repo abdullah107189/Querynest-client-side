@@ -9,7 +9,7 @@ const PopularProducts = () => {
     }, []);
 
     return (
-        <div className="max-w-7xl mx-auto px-4 md:my-20 my-5 md:py-8 py-5">
+        <div  className="max-w-7xl mx-auto px-4 md:my-2 my-5 md:py-8 py-5" >
             <h2 className="text-3xl font-bold text-center mb-8">Popular 5 Products</h2>
 
             <h3 className="text-2xl font-semibold mb-4 text-center">Top Recommendation Products</h3>

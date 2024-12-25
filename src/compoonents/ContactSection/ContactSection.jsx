@@ -13,7 +13,7 @@ const ContactSection = () => {
 
     return (
         <div className='minHF my-10'>
-            <h1 className='text-4xl  text-center font-bold mb-5'>Contact section</h1>
+            <h1 className='md:text-4xl text-center font-bold mb-5'>Contact section</h1>
             <div className="md:flex  justify-between gap-10 md:p-0 p-4">
                 <div className="md:w-1/2">
                     <h2 className="text-2xl font-bold mb-4">Send A Message</h2>
@@ -72,27 +72,27 @@ const ContactSection = () => {
                 </div>
                 <div className="md:w-1/2">
                     <h2 className="text-2xl font-bold mb-4">Contact Details</h2>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-2xl mb-2">
                         Etiam sit amet orci eget eros faucibus tincidunt. Pellentesque commodo eros a enim. Etiam rhoncus. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras sagittis.
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-2xl">
                         Vestibulum turpis sem, aliquet eget, lobortis pellentesque.
                     </p>
-                    <div className="flex mt-4">
+                    <div className="flex items-center justify-center mt-5">
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaFacebook />
+                            <FaFacebook className='w-10 h-10'/>
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaTwitter />
+                            <FaTwitter className='w-10 h-10'/>
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaInstagram />
+                            <FaInstagram className='w-10 h-10'/>
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaPinterest />
+                            <FaPinterest className='w-10 h-10' />
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaLinkedin />
+                            <FaLinkedin className='w-10 h-10'/>
                         </a>
                     </div>
                 </div>
