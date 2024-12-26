@@ -31,8 +31,8 @@ const AllQueries = () => {
             <div className="flex items-center justify-end gap-5 px-4 mt-5 ">
                 <h1 className="text-2xl font-bold">Show card as you want </h1>
                 <div className="flex gap-2">
-                    <button onClick={() => setToggle(true)}><CgMenuGridR className={`w-8 h-8 ${toggle ? '' : 'text-gray-400 '}`} /></button>
-                    <button onClick={() => setToggle(false)}><TfiMenuAlt className={`w-8 h-8 ${toggle ? 'text-gray-400 ' : ''}`} /></button>
+                    <button onClick={() => setToggle(true)}><CgMenuGridR className={`w-8 h-8 ${toggle ? 'text-blue-500' : ''}`} /></button>
+                    <button onClick={() => setToggle(false)}><TfiMenuAlt className={`w-8 h-8 ${toggle ? '' : 'text-blue-500 '}`} /></button>
                 </div>
             </div>
             {
