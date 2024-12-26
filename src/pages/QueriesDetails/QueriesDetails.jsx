@@ -46,12 +46,13 @@ const QueryDetails = () => {
             })
 
     };
+
     useEffect(() => {
         axios.get(`https://query-nest-server-side.vercel.app/allRecommendation?id=${id}`)
             .then(res => {
                 setAllRecommendation(res.data)
             })
-    }, [])
+    }, [id])
     return (
         <div className="">
             <div className="minH flex items-center justify-center">
