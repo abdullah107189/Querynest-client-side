@@ -90,7 +90,7 @@ const MyQueries = () => {
                         ))
                         :
                         queries.length === 0 ?
-                            <div className="flex items-center justify-center md:gap-10 gap-5 flex-col bg-slate-100 p-10 w-full lg:col-span-3 md:col-span-2 col-span-1">
+                            <div className="flex items-center justify-center md:gap-10 gap-5 flex-col minHF bg-slate-100 p-10 w-full lg:col-span-3 md:col-span-2 col-span-1">
                                 <p className="text-2xl text-center font-bold">There are no queries found</p>
                                 <Link
                                     to={'/add-queries'}

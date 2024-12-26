@@ -11,7 +11,7 @@ const MyRecommendation = () => {
     useEffect(() => {
         if (user?.email) {
             setFetchLoading(true)
-            axiosInstance.get(`/recommendation-for-me/${user.email}`)
+            axiosInstance.get(`/my-recommendation/${user.email}`)
                 .then(res => {
                     setMyRecommendtaion(res.data);
                     setFetchLoading(false)
