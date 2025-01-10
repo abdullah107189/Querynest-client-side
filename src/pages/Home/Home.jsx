@@ -6,7 +6,7 @@ import Slider from "../../compoonents/Slider/Slider";
 
 const Home = () => {
     return (
-        <div>
+        <div className="mxw">
             <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
                 <Slider></Slider>
             </div>

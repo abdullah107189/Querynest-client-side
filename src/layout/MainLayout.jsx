@@ -1,18 +1,22 @@
-import Navbar from '../compoonents/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from '../compoonents/Footer/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import Navbar from '../compoonents/Navbar/Navbar';
 const MainLayout = () => {
     useEffect(() => {
         AOS.init();
     }, []);
     return (
-        <div className='max-w-[1440px] mx-auto '>
-            <Navbar></Navbar>
+        <div className=''>
+            <div className="sticky top-0 backdrop-blur-lg bg-[#f9fafb] z-50 border-b">
+                <Navbar></Navbar>
+            </div>
             <Outlet></Outlet>
-            <Footer></Footer>
+            <div className="mxw">
+                <Footer></Footer>
+            </div>
         </div>
     );
 };

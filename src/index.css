@@ -4,6 +4,7 @@
 
 body{
     overflow-y: scroll;
+    background-color: #f9fafb;
 }
 
 @layer components {
@@ -15,5 +16,8 @@ body{
     }
     .activeActionBtn{
         @apply font-semibold border border-blue-500 py-2 px-5 rounded-md bg-blue-500 text-white
+    }
+    .mxw{
+        @apply max-w-[1440px] mx-auto 
     }
   }

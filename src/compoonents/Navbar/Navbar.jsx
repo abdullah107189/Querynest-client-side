@@ -21,8 +21,8 @@ const Navbar = () => {
     }
 
     return (
-        <div className=" sticky top-0 backdrop-blur-lg bg-white/50 z-50">
-            <div className="navbar py-0">
+        <div className="mxw">
+            <div className="navbar">
                 <div className="navbar-start z-30 ">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -87,12 +87,15 @@ const Navbar = () => {
                                 <button onClick={handlLogout} className="actionBtn">Log-out</button>
                             </div>
                             :
-                            <NavLink to="/login" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Login</NavLink>
-
+                            <div>
+                                <NavLink to="/login" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'} mr-3   `}>Login</NavLink>
+                                <NavLink to="/reg" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Register</NavLink>
+                            </div>
                     }
                 </div>
             </div>
         </div >
+        // </div>
     );
 };
 
