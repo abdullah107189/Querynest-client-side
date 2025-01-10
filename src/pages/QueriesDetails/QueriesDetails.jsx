@@ -56,66 +56,66 @@ const QueryDetails = () => {
             <div className="minH flex items-center justify-center">
                 <div className="container mx-auto p-5 grid grid-cols-1 md:grid-cols-2 gap-3">
                     {/* Query Information */}
-                    <div className="bgS shadow-md rounded-lg p-5 border">
-                        <h1 className="text-2xl font-bold text-gray-700">{queryData?.query_title}</h1>
-                        <p className="mt-3 text-gray-600">{queryData?.boycotting_reason}</p>
+                    <div className="bgS shadow-md rounded-lg p-5 dark:border-gray-700 border">
+                        <h1 className="text-2xl font-bold textP">{queryData?.query_title}</h1>
+                        <p className="mt-3 textS">{queryData?.boycotting_reason}</p>
                         <div className="mt-5">
-                            <h2 className="font-semibold text-lg text-gray-700">Product Name:</h2>
-                            <p className="text-gray-600">{queryData?.product_name}</p>
-                            <h2 className="font-semibold text-lg text-gray-700 mt-3">Product Brand:</h2>
-                            <p className="text-gray-600">{queryData?.product_brand}</p>
+                            <h2 className="font-semibold text-lg textP">Product Name:</h2>
+                            <p className="textS">{queryData?.product_name}</p>
+                            <h2 className="font-semibold text-lg textP mt-3">Product Brand:</h2>
+                            <p className="textS">{queryData?.product_brand}</p>
                         </div>
                         <div className="mt-5 flex items-center">
                             <img
                                 referrerPolicy='no-referrer'
                                 src={queryData?.product_url}
                                 alt={queryData?.product_name}
-                                className="w-52 h-52 object-cover rounded-lg border"
+                                className="w-52 h-52 object-cover rounded-lg dark:border-gray-700 border"
                             />
                         </div>
                         <div className="mt-5">
-                            <p className="text-sm text-gray-500">
+                            <p className="text-sm dark:text-gray-400 text-gray-500">
                                 Query by: {queryData?.authorName} ({queryData?.authorEmail})
                             </p>
                         </div>
                     </div>
 
                     {/* Recommendation Form */}
-                    <div className="bgS shadow-md rounded-lg p-5 border">
-                        <h2 className="md:text-4xl text-2xl text-center font-semibold text-gray-700 mb-4">Add a Recommendation</h2>
+                    <div className="bgS shadow-md rounded-lg p-5 dark:border-gray-700 border">
+                        <h2 className="md:text-4xl text-2xl text-center font-semibold textP mb-4">Add a Recommendation</h2>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">Recommendation Title</label>
+                                <label className="block text-sm font-medium textP">Recommendation Title</label>
                                 <input
                                     type="text"
                                     name="recommendationTitle"
-                                    className="mt-1 block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:outline-none sm:text-sm"
+                                    className="mt-1 block w-full rounded-md p-3 dark:border-gray-700 border shadow-sm focus:outline-none sm:text-sm"
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">Recommended Product Name</label>
+                                <label className="block text-sm font-medium textP">Recommended Product Name</label>
                                 <input
                                     type="text"
                                     name="recommendedProductName"
-                                    className="mt-1 block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:outline-none sm:text-sm"
+                                    className="mt-1 block w-full rounded-md p-3 dark:border-gray-700 border shadow-sm focus:outline-none sm:text-sm"
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">Recommended Product Image URL</label>
+                                <label className="block text-sm font-medium textP">Recommended Product Image URL</label>
                                 <input
                                     type="url"
                                     required
                                     name="recommendedProductImage"
-                                    className="mt-1 block w-full rounded-md p-3 border border-gray-300 shadow-sm focus:outline-none sm:text-sm"
+                                    className="mt-1 block w-full rounded-md p-3 dark:border-gray-700 border shadow-sm focus:outline-none sm:text-sm"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">Reason for Recommendation</label>
+                                <label className="block text-sm font-medium textP">Reason for Recommendation</label>
                                 <textarea
                                     name="recommendationReason"
-                                    className="mt-1 block max-h-32 w-full rounded-md p-3 border border-gray-300 shadow-sm focus:outline-none sm:text-sm"
+                                    className="mt-1 block max-h-32 w-full rounded-md p-3 dark:border-gray-700 border shadow-sm focus:outline-none sm:text-sm"
                                     rows="3"
                                     required
                                 />
@@ -132,14 +132,14 @@ const QueryDetails = () => {
             </div>
             {/* All Recommendations */}
             < div className="bgS shadow-md rounded-lg p-5 mb-5" >
-                <h2 className="text-xl font-semibold text-gray-700 mb-4">All Recommendations</h2>
+                <h2 className="text-xl font-semibold textP mb-4">All Recommendations</h2>
                 <div className="space-y-4 Z">
                     {allRecommendation.map((rec, idx) => (
-                        <div key={idx} className="p-4 border-2 bg-blue-50  rounded-lg md:flex justify-between gap-3 items-center" id={`${idx + 1}`}>
+                        <div key={idx} className="p-4 dark:border-gray-700 border-2 bgS  rounded-lg md:flex justify-between gap-3 items-center" id={`${idx + 1}`}>
                             <div className='w-full'>
                                 <h3 className="font-semibold text-lg">{rec.recommendationTitle}</h3>
-                                <p className="text-sm text-gray-500">Recommended by: {rec.recommenderName}</p>
-                                <p className="text-sm text-gray-500">Recommended Time: {format(new Date(rec.recommendTime), 'P')}</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Recommended by: {rec.recommenderName}</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Recommended Time: {format(new Date(rec.recommendTime), 'P')}</p>
 
                             </div>
                             <div className='w-full'>

@@ -71,7 +71,7 @@ const Navbar = () => {
                         }
                     </div>
                     <a href="/">
-                        <img className="w-16 h-16 object-contain dark:bg-gray-400 rounded-lg" src={logo} alt="" />
+                        <img className="w-14 h-14 object-contain dark:bg-gray-400 rounded-lg" src={logo} alt="" />
                     </a>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
