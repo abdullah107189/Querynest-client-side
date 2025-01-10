@@ -19,7 +19,7 @@ const Login = () => {
                     navigate(from, { replace: true });
 
                     const user = { email: res.user.email }
-                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
+                    axios.post('https://b10a11-server-side-abdullah107189.vercel.app/jwt-singIn', user, { withCredentials: true })
                     toast.success('Log-in With Google successfully done !')
                 }
             })
@@ -36,7 +36,7 @@ const Login = () => {
                     toast.success('Log-in successfully done !')
                     navigate(from, { replace: true });
                     const user = { email: res.user.email }
-                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
+                    axios.post('https://b10a11-server-side-abdullah107189.vercel.app/jwt-singIn', user, { withCredentials: true })
                         .then(() => {
                         })
                 }

@@ -10,7 +10,7 @@ const Navbar = () => {
     const handlLogout = () => {
         logoutUser()
             .then(() => {
-                axios.post('http://localhost:4545/jwt-logout', user, { withCredentials: true })
+                axios.post('https://b10a11-server-side-abdullah107189.vercel.app/jwt-logout', user, { withCredentials: true })
                     .then(() => {
                     })
                 toast.success('Log out successfully done !')

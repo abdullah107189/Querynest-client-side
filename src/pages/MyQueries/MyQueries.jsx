@@ -103,6 +103,12 @@ const MyQueries = () => {
                                             <td className="border">
                                                 <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
                                             </td>
+                                            <td className="border">
+                                                <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
+                                            </td>
+                                            <td className="border">
+                                                <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
+                                            </td>
                                         </tr>
                                     ))}
                                 </tbody>

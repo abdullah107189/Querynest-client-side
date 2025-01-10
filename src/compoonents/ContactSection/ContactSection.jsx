@@ -12,9 +12,9 @@ const ContactSection = () => {
     };
 
     return (
-        <div className='minHF my-10'>
-            <h1 className='md:text-4xl text-center font-bold mb-5'>Contact section</h1>
-            <div className="md:flex  justify-between gap-10 md:p-0 p-4">
+        <div className=' md:py-20 py-10 px-4'>
+            <h1 className='md:text-4xl text-center font-bold md:mb-10 mb-5'>Contact section</h1>
+            <div className="md:flex justify-between gap-10 md:p-0 p-4">
                 <div className="md:w-1/2">
                     <h2 className="text-2xl font-bold mb-4">Send A Message</h2>
                     <form onSubmit={handleSubmit} className="space-y-4 border p-5 rounded-lg">
@@ -80,19 +80,19 @@ const ContactSection = () => {
                     </p>
                     <div className="flex items-center justify-center mt-5">
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaFacebook className='w-10 h-10'/>
+                            <FaFacebook className='w-10 h-10' />
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaTwitter className='w-10 h-10'/>
+                            <FaTwitter className='w-10 h-10' />
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaInstagram className='w-10 h-10'/>
+                            <FaInstagram className='w-10 h-10' />
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
                             <FaPinterest className='w-10 h-10' />
                         </a>
                         <a href="#" className="text-blue-500 mx-2">
-                            <FaLinkedin className='w-10 h-10'/>
+                            <FaLinkedin className='w-10 h-10' />
                         </a>
                     </div>
                 </div>

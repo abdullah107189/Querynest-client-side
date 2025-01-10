@@ -32,12 +32,12 @@ const QueryDetails = () => {
         form.recommenderEmail = user?.email
         form.recommenderName = user?.displayName
         form.recommendTime = date
-        axiosInstance.post('http://localhost:4545/add-recommendations', form)
+        axiosInstance.post('https://b10a11-server-side-abdullah107189.vercel.app/add-recommendations', form)
             .then(async (res) => {
                 if (res.data.insertedId) {
                     toast.success('Recommendation added successfully done !')
 
-                    const { data } = await axios.get(`http://localhost:4545/allRecommendation/${id}`)
+                    const { data } = await axios.get(`https://b10a11-server-side-abdullah107189.vercel.app/allRecommendation/${id}`)
                     setAllRecommendation(data)
                 }
             })
@@ -45,7 +45,7 @@ const QueryDetails = () => {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:4545/allRecommendation/${id}`)
+        axios.get(`https://b10a11-server-side-abdullah107189.vercel.app/allRecommendation/${id}`)
             .then(res => {
                 setAllRecommendation(res.data)
             })

@@ -34,7 +34,7 @@ const MyRecommendation = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:4545/my-recommendation/${id}?queryId=${queryId}`,)
+                axios.delete(`https://b10a11-server-side-abdullah107189.vercel.app/my-recommendation/${id}?queryId=${queryId}`,)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
@@ -42,7 +42,7 @@ const MyRecommendation = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            axios.get(`http://localhost:4545/my-recommendation/${user?.email}`)
+                            axios.get(`https://b10a11-server-side-abdullah107189.vercel.app/my-recommendation/${user?.email}`)
                                 .then(res => {
                                     setMyRecommendtaion(res.data)
                                 })

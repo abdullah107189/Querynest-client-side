@@ -16,7 +16,7 @@ const AllQueries = () => {
     useEffect(() => {
         setFetchLoading(true)
         // https://query-nest-server-side.vercel.app
-        axios.get(`http://localhost:4545/all-queries?search=${searchValue}&sort=${sortedItems}`)
+        axios.get(`https://b10a11-server-side-abdullah107189.vercel.app/all-queries?search=${searchValue}&sort=${sortedItems}`)
             .then(res => {
                 setQueries(res.data)
                 setFetchLoading(false)

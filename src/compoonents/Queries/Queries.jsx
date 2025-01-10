@@ -8,7 +8,7 @@ const Queries = () => {
     const [fetchLoading, setFetchLoading] = useState(false)
     useEffect(() => {
         setFetchLoading(true)
-        axios.get(`http://localhost:4545/all-queries?limit=8`)
+        axios.get(`https://b10a11-server-side-abdullah107189.vercel.app/all-queries?limit=8`)
             .then(res => {
                 setQueries(res.data)
                 setFetchLoading(false)
@@ -16,7 +16,7 @@ const Queries = () => {
     }, [])
 
     return (
-        <div className="my-20">
+        <div className="md:pt-20 pt-10">
             <h1 className="md:text-4xl text-2xl font-bold text-center md:mb-10 mb-5">Recent Added Queries</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
                 {

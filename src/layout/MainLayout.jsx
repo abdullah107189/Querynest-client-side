@@ -16,7 +16,7 @@ const MainLayout = () => {
             <div className='px-4 lg:p-0'>
                 <Outlet></Outlet>
             </div>
-            <div className="mxw">
+            <div className="">
                 <Footer></Footer>
             </div>
         </div>

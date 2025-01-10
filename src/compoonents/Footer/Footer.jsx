@@ -2,24 +2,21 @@ import logo from '../../assets/queryNest_logo.png'
 import { FaFacebook, FaLinkedin } from "react-icons/fa6";
 const Footer = () => {
     return (
-        <div className="">
-            <footer className="footer bg-base-200 text-base-content p-10">
+        <div className="bg-base-200">
+            <footer className="footer mxw text-base-content p-10 justify-between">
                 <aside>
                     <a href="/"><img className='w-32' src={logo} alt="" /></a>
                 </aside>
                 <nav>
                     <h6 className="footer-title">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <a href='/#queries' className="link link-hover">Queries</a>
+                    <a href='/#popularProducts' className="link link-hover">Popular Products</a>
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <h6 className="footer-title">About Us</h6>
+                    <a href='/#blogs' className="link link-hover">Blogs</a>
+                    <a href='/#contact' className="link link-hover">Contact</a>
+                    <a href='/#subscription' className="link link-hover">Subscription</a>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Social Media</h6>
