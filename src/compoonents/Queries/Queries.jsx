@@ -8,7 +8,7 @@ const Queries = () => {
     const [fetchLoading, setFetchLoading] = useState(false)
     useEffect(() => {
         setFetchLoading(true)
-        axios.get(`http://localhost:4545/all-queries?limit=6`)
+        axios.get(`http://localhost:4545/all-queries?limit=8`)
             .then(res => {
                 setQueries(res.data)
                 setFetchLoading(false)
@@ -66,6 +66,9 @@ const Queries = () => {
 
                         ))
                 }
+            </div>
+            <div className="flex items-center">
+                <Link to={'/queries'} className="activeActionBtn rounded-full px-10 py-3 mx-auto my-5">See All Queries</Link>
             </div>
         </div>
     );

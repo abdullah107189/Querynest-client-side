@@ -52,9 +52,9 @@ const MyRecommendation = () => {
         });
     }
     return (
-        <div className="minHF">
-            <h1 className="text-2xl font-bold mb-4">My Recommendations</h1>
-            <div className="overflow-x-auto my-10">
+        <div className="minHF mxw ">
+            <h1 className="text-2xl px-4 font-bold mb-4">My Recommendations</h1>
+            <div className="overflow-x-auto my-10 px-4">
                 <table className="table">
                     {/* head */}
                     <thead>
