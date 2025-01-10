@@ -12,7 +12,6 @@ const QueryDetails = () => {
     const [queryData, setQueryData] = useState([])
     const [allRecommendation, setAllRecommendation] = useState([])
     const axiosInstance = useAxiosSecure()
-
     useEffect(() => {
         axiosInstance.get(`/querie-details/${id}`)
             .then(res => {
@@ -33,22 +32,20 @@ const QueryDetails = () => {
         form.recommenderEmail = user?.email
         form.recommenderName = user?.displayName
         form.recommendTime = date
-        axios.post('http://localhost:4545/add-recommendations', form)
-            .then(res => {
+        axiosInstance.post('http://localhost:4545/add-recommendations', form)
+            .then(async (res) => {
                 if (res.data.insertedId) {
                     toast.success('Recommendation added successfully done !')
 
-                    axios.get(`http://localhost:4545/allRecommendation?id=${id}`)
-                        .then(res => {
-                            setAllRecommendation(res.data)
-                        })
+                    const { data } = await axios.get(`http://localhost:4545/allRecommendation/${id}`)
+                    setAllRecommendation(data)
                 }
             })
 
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:4545/allRecommendation?id=${id}`)
+        axios.get(`http://localhost:4545/allRecommendation/${id}`)
             .then(res => {
                 setAllRecommendation(res.data)
             })
@@ -124,7 +121,7 @@ const QueryDetails = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-md"
+                                className={`${user || 'btn-disabled bg-gray-400 disabled:cursor-not-allowed'} w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-md`}
                             >
                                 Add Recommendation
                             </button>

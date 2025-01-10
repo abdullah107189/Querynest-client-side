@@ -34,7 +34,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/querie-details/:id',
-                element: <PrivetRoute><QueriesDetails></QueriesDetails></PrivetRoute>,
+                element: <QueriesDetails></QueriesDetails>,
             },
             {
                 path: '/update-query/:id',
