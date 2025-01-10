@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { format } from 'date-fns';
@@ -12,6 +12,7 @@ const QueryDetails = () => {
     const [queryData, setQueryData] = useState([])
     const [allRecommendation, setAllRecommendation] = useState([])
     const axiosInstance = useAxiosSecure()
+    const navigate = useNavigate()
     useEffect(() => {
         axiosInstance.get(`/querie-details/${id}`)
             .then(res => {
@@ -39,6 +40,7 @@ const QueryDetails = () => {
 
                     const { data } = await axios.get(`https://b10a11-server-side-abdullah107189.vercel.app/allRecommendation/${id}`)
                     setAllRecommendation(data)
+                    e.target.reset()
                 }
             })
 
@@ -134,7 +136,7 @@ const QueryDetails = () => {
                 <h2 className="text-xl font-semibold text-gray-700 mb-4">All Recommendations</h2>
                 <div className="space-y-4 Z">
                     {allRecommendation.map((rec, idx) => (
-                        <div key={idx} className="p-4 border-2 bg-blue-50  rounded-lg md:flex justify-between gap-3 items-center">
+                        <div key={idx} className="p-4 border-2 bg-blue-50  rounded-lg md:flex justify-between gap-3 items-center" id={`${idx + 1}`}>
                             <div className='w-full'>
                                 <h3 className="font-semibold text-lg">{rec.recommendationTitle}</h3>
                                 <p className="text-sm text-gray-500">Recommended by: {rec.recommenderName}</p>

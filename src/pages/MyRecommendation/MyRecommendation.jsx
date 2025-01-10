@@ -42,7 +42,8 @@ const MyRecommendation = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            axios.get(`https://b10a11-server-side-abdullah107189.vercel.app/my-recommendation/${user?.email}`)
+
+                            axiosInstance.get(`https://b10a11-server-side-abdullah107189.vercel.app/my-recommendation/${user?.email}`)
                                 .then(res => {
                                     setMyRecommendtaion(res.data)
                                 })

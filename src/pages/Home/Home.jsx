@@ -1,4 +1,3 @@
-
 import BlogSection from "../../compoonents/Blogs/Blogs";
 import ContactSection from "../../compoonents/ContactSection/ContactSection";
 import PopularProducts from "../../compoonents/PopularProducts/PopularProducts";
