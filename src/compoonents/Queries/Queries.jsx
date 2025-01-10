@@ -21,7 +21,6 @@ const Queries = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
                 {
                     fetchLoading === true ?
-
                         Array.from({ length: 4 }).map((_, idx) => (
                             <div key={idx} className="relative border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition ">
                                 <div className="px-3 rounded-md bg-blue-100/60 text-blue-500 font-semibold top-1 left-1 absolute flex flex-col">
@@ -31,15 +30,13 @@ const Queries = () => {
 
                                 <div className="w-full h-[200px] bg-gray-200 animate-pulse"></div>
 
-                                <div className="p-4 text-center">
-                                    <div className="h-6 w-3/4 bg-gray-300 animate-pulse rounded-md mb-3 mx-auto"></div>
-                                    <div className="h-4 w-5/6 bg-gray-300 animate-pulse rounded-md mb-3 mx-auto"></div>
-                                    <div className="h-4 w-1/2 bg-gray-300 animate-pulse rounded-md mb-4 mx-auto"></div>
-                                    <div className="flex items-center justify-center gap-2">
-                                        <div className="h-10 w-24 bg-blue-300 animate-pulse rounded-md"></div>
-                                        <div className="h-10 w-24 bg-blue-300 animate-pulse rounded-md"></div>
-                                        <div className="h-10 w-24 bg-blue-300 animate-pulse rounded-md"></div>
-                                    </div>
+                                <div className="p-4">
+                                    <div className="h-6 w-3/4 bg-gray-300 animate-pulse rounded-md mb-3"></div>
+                                    <div className="h-4 w-5/6 bg-gray-300 animate-pulse rounded-md mb-3"></div>
+                                    <div className="h-4 w-1/2 bg-gray-300 animate-pulse rounded-md mb-4"></div>
+
+                                    <div className="h-10 w-full bg-blue-300 animate-pulse rounded-md"></div>
+
                                 </div>
                             </div>
                         ))
@@ -59,11 +56,11 @@ const Queries = () => {
                                     className="w-full h-[200px] object-contain flex-grow-0"
                                     onError={(e) => e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png'}
                                 />
-                                <div className="p-4 text-center h-full flex flex-col">
+                                <div className="p-4 h-full flex flex-col">
                                     <h2 className="text-lg font-bold">{query.product_name}</h2>
                                     <p className="text-sm mb-3 text-gray-600">{query.query_title.substring(0, 50)}...</p>
                                     <p className="mb-4 font-bold flex-grow">RecommendationCount : {query.recommendationCount}</p>
-                                    <Link className="actionBtn mt-auto" to={`/querie-details/${query?._id}`}>Do Recommend</Link>
+                                    <Link className="actionBtn mt-auto text-center" to={`/querie-details/${query?._id}`}>Do Recommend</Link>
                                 </div>
                             </div>
 

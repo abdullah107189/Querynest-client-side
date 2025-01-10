@@ -82,8 +82,8 @@ const Slider = () => {
                         <p className="text-lg mb-4">Through the development of technology through combined knowledge.</p>
                         <p className="text-sm mb-4">Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada.</p>
                     </div>
-                    <div className='md:w-1/2 mx-auto'>
-                        <img src={celebrat} alt="Image of two students celebrating" className="w-2/3 m-auto" />
+                    <div className='md:w-1/2 mx-auto flex items-end'>
+                        <img src={celebrat} alt="Image of two students celebrating" className=" m-auto" />
                     </div>
                 </div>
             </SwiperSlide>

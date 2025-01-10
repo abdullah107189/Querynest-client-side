@@ -13,7 +13,7 @@ body {
     }
 
     .activeActionBtn {
-        @apply font-semibold border border-blue-500 py-1 px-5 rounded-md bg-blue-500 text-white
+        @apply font-semibold border border-blue-500 py-1 md:px-5 px-3 text-sm md:text-base rounded-md bg-blue-500 text-white
     }
 
     .mxw {
