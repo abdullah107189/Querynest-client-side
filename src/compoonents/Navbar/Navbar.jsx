@@ -21,8 +21,8 @@ const Navbar = () => {
     }
 
     return (
-        <div className=" sticky top-0 backdrop-blur-lg bg-white/20 z-50">
-            <div className="navbar">
+        <div className=" sticky top-0 backdrop-blur-lg bg-white/50 z-50">
+            <div className="navbar py-0">
                 <div className="navbar-start z-30 ">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,18 +43,18 @@ const Navbar = () => {
                             user ? <ul
                                 tabIndex={0}
                                 className="z-30 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 ">
-                                <NavLink to="/" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Home</NavLink>
-                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Queries</NavLink>
-                                <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Recommendations For Me</NavLink>
-                                <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>My Queries</NavLink>
-                                <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>My Recommendations</NavLink>
+                                <NavLink to="/" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Home</NavLink>
+                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Queries</NavLink>
+                                <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Recommendations For Me</NavLink>
+                                <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>My Queries</NavLink>
+                                <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>My Recommendations</NavLink>
                             </ul>
                                 :
                                 <ul
                                     tabIndex={0}
                                     className="z-30 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow gap-3 ">
-                                    <NavLink to="/" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Home</NavLink>
-                                    <NavLink to="/queries" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Queries</NavLink>
+                                    <NavLink to="/" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Home</NavLink>
+                                    <NavLink to="/queries" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Queries</NavLink>
                                 </ul>
                         }
                     </div>
@@ -62,20 +62,20 @@ const Navbar = () => {
                         <img className="w-16 h-16 object-contain" src={logo} alt="" />
                     </a>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-center hidden lg:flex ">
                     {
                         user ?
                             <ul className="menu menu-horizontal px-1 gap-3">
-                                <NavLink to="/" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Home</NavLink>
-                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Queries</NavLink>
-                                <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Recommendations For Me</NavLink>
-                                <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>My Queries</NavLink>
-                                <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>My Recommendations</NavLink>
+                                <NavLink to="/" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Home</NavLink>
+                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Queries</NavLink>
+                                <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Recommendations For Me</NavLink>
+                                <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>My Queries</NavLink>
+                                <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>My Recommendations</NavLink>
                             </ul>
                             :
                             <ul className="menu menu-horizontal px-1 gap-3">
-                                <NavLink to="/" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Home</NavLink>
-                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Queries</NavLink>
+                                <NavLink to="/" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Home</NavLink>
+                                <NavLink to="/queries" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Queries</NavLink>
                             </ul>
                     }
                 </div>
@@ -84,10 +84,10 @@ const Navbar = () => {
                         user ?
                             <div className="flex gap-2 items-center">
                                 <img referrerPolicy="no-referrer" className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
-                                <button onClick={handlLogout} className="text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md">Log-out</button>
+                                <button onClick={handlLogout} className="actionBtn">Log-out</button>
                             </div>
                             :
-                            <NavLink to="/login" className={({ isActive }) => `${isActive ? "bg-blue-500 text-white" : "bg-white"}   text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-2 px-5 rounded-md`}>Login</NavLink>
+                            <NavLink to="/login" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Login</NavLink>
 
                     }
                 </div>
