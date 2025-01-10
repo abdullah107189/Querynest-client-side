@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 const axiosInstance = axios.create({
-    baseURL: 'https://query-nest-server-side.vercel.app',
+    baseURL: 'http://localhost:4545',
     withCredentials: true
 })
 const useAxiosSecure = () => {

@@ -8,7 +8,7 @@ const Queries = () => {
     const [fetchLoading, setFetchLoading] = useState(false)
     useEffect(() => {
         setFetchLoading(true)
-        axios.get(`https://query-nest-server-side.vercel.app/all-queries?limit=6`)
+        axios.get(`http://localhost:4545/all-queries?limit=6`)
             .then(res => {
                 setQueries(res.data)
                 setFetchLoading(false)

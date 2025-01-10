@@ -10,36 +10,45 @@ const AllQueries = () => {
     const [queries, setQueries] = useState([])
     const [toggle, setToggle] = useState(true)
     const [fetchLoading, setFetchLoading] = useState(false)
+    const [sortedItems, setSortedItems] = useState('Default');
 
     const [searchValue, setSearchValue] = useState('')
     useEffect(() => {
         setFetchLoading(true)
-        axios.get(`https://query-nest-server-side.vercel.app/all-queries?search=${searchValue}`)
+        // https://query-nest-server-side.vercel.app
+        axios.get(`http://localhost:4545/all-queries?search=${searchValue}&sort=${sortedItems}`)
             .then(res => {
                 setQueries(res.data)
                 setFetchLoading(false)
             })
-    }, [searchValue])
+    }, [searchValue, sortedItems])
 
     return (
         <div className="my-10 mxw">
-            {/* search field */}
             <div className="flex items-center justify-center">
                 <input
                     onChange={(e) => setSearchValue(e.target.value)}
                     className="relative border rounded-full focus:w-3/5 transform duration-300 focus:outline-none focus:shadow-lg focus:border-0 px-5 p-2 md:w-1/2" type="search" placeholder="Search Query" name="" id="" />
             </div>
-            <div className="flex items-center justify-end gap-5 px-4 mt-5 ">
-                <h1 className="text-2xl font-bold">Show card as you want </h1>
+            <div className="flex items-center justify-end gap-5 px-4 mt-5 sticky top-16 z-10 bg-gray-50 py-1">
                 <div className="flex gap-2">
                     <button onClick={() => setToggle(true)}><CgMenuGridR className={`w-8 h-8 ${toggle ? 'text-blue-500' : ''}`} /></button>
                     <button onClick={() => setToggle(false)}><TfiMenuAlt className={`w-8 h-8 ${toggle ? '' : 'text-blue-500 '}`} /></button>
                 </div>
+                <div>
+                    <select className="border p-2 rounded-lg border-blue-400 cursor-pointer" value={sortedItems} onChange={(e) => setSortedItems(e.target.value)}>
+                        <option value="default">Default</option>
+                        <option value="asc">Ascending by Date</option>
+                        <option value="desc">Descending by Date</option>
+                    </select>
+
+                </div>
             </div>
+
             {
                 fetchLoading ?
                     <div className={`grid grid-cols-1 ${toggle ? 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' : ''} gap-4 p-4`}>
-                        {Array.from({ length: 6 }).map((_, index) => (
+                        {Array.from({ length: 8 }).map((_, index) => (
                             <div
                                 key={index}
                                 className={`relative ${toggle || 'flex justify-between items-center'} border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition`}

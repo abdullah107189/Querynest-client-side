@@ -37,7 +37,7 @@ const Register = () => {
                             toast.success('Register Success!')
                             navigate('/')
                             const user = { email: res.user.email }
-                            axios.post('https://query-nest-server-side.vercel.app/jwt-singIn', user, { withCredentials: true })
+                            axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
                                 .then(() => {
                                 })
                         })
@@ -58,7 +58,7 @@ const Register = () => {
                     toast.success('Register With Google successfully done !')
                     navigate('/')
                     const user = { email: res.user.email }
-                    axios.post('https://query-nest-server-side.vercel.app/jwt-singIn', user, { withCredentials: true })
+                    axios.post('http://localhost:4545/jwt-singIn', user, { withCredentials: true })
                         .then(() => {
                         })
                 }
