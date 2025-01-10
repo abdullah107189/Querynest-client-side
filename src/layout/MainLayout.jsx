@@ -13,7 +13,9 @@ const MainLayout = () => {
             <div className="sticky top-0 backdrop-blur-lg bg-[#f9fafb] z-50 border-b">
                 <Navbar></Navbar>
             </div>
-            <Outlet></Outlet>
+            <div className='px-4 lg:p-0'>
+                <Outlet></Outlet>
+            </div>
             <div className="mxw">
                 <Footer></Footer>
             </div>

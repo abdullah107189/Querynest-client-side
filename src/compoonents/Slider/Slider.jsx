@@ -3,14 +3,14 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import './slider.css'
 import { Pagination, Autoplay } from 'swiper/modules';
-import celebrat from '../../assets/banner_slider.png'
+import celebrat from '../../assets/banner_slider.svg'
 import banner2 from '../../assets/slider3.jpg'
 import { Link } from 'react-router-dom';
 const Slider = () => {
     return (
         <Swiper
-            className="mySwiper z-0 flex items-center justify-center"
-            // autoplay={{ delay: 3000, disableOnInteraction: false }}
+            className="mySwiper z-0 flex items-center justify-center md:min-h-[60vh]"
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             modules={[Pagination, Autoplay]}
             spaceBetween={20}
             slidesPerView={1}
@@ -24,7 +24,7 @@ const Slider = () => {
         >
             <SwiperSlide>
                 <div
-                    className="relative h-[600px] flex items-center justify-center bg-cover bg-center text-white"
+                    className="relative min-h-[40vh] md:min-h-[60vh] flex items-center justify-center bg-cover bg-center text-white"
                     style={{
                         backgroundImage: `url(${banner2})`,
                     }}
@@ -49,7 +49,7 @@ const Slider = () => {
 
             <SwiperSlide className='flex items-center justify-center'>
                 <div
-                    className=" h-[600px] bg-cover bg-center text-white flex items-center justify-center backgroundImage1  relative border"
+                    className=" min-h-[40vh] md:min-h-[60vh] bg-cover bg-center text-white flex items-center justify-center backgroundImage1  relative border"
 
                 >
                     <div className='bg-black absolute inset-0 opacity-50'>
@@ -75,9 +75,7 @@ const Slider = () => {
             </SwiperSlide>
 
             <SwiperSlide className='flex items-center justify-normal  my-auto'>
-                <div className="h-[600px] md:p-10 md:flex items-center justify-center ">
-                    {/* <div className='bg-black absolute inset-0 '>
-                    </div> */}
+                <div className="max-h-[40vh] md:max-h-[60vh] md:p-10 md:flex items-center justify-center ">
                     <div className=" z-20 md:w-1/2 p-4">
                         <p>Who we are</p>
                         <h2 className="md:text-4xl text-xl font-bold md:mb-4 mb-2">Our Job is to Empower the World</h2>
@@ -85,7 +83,7 @@ const Slider = () => {
                         <p className="text-sm mb-4">Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada.</p>
                     </div>
                     <div className='md:w-1/2 mx-auto'>
-                        <img src={celebrat} alt="Image of two students celebrating" className="w-10/12 m-auto" />
+                        <img src={celebrat} alt="Image of two students celebrating" className="w-2/3 m-auto" />
                     </div>
                 </div>
             </SwiperSlide>
