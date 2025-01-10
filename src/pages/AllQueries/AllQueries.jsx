@@ -28,9 +28,9 @@ const AllQueries = () => {
             <div className="flex items-center justify-center">
                 <input
                     onChange={(e) => setSearchValue(e.target.value)}
-                    className="relative border rounded-full focus:w-3/5 transform duration-300 focus:outline-none focus:shadow-lg focus:border-0 px-5 p-2 md:w-1/2" type="search" placeholder="Search Query" name="" id="" />
+                    className="relative dark:border-gray-700 border rounded-full focus:w-3/5 transform duration-300 focus:outline-none focus:shadow-lg focus:border-0 px-5 p-2 md:w-1/2" type="search" placeholder="Search Query" name="" id="" />
             </div>
-            <div className="flex items-center justify-end gap-5 px-4 mt-5 sticky top-16 z-10 bg-gray-50 py-1">
+            <div className="flex items-center justify-end gap-5 px-4 mt-5 sticky top-16 z-10 bgP py-1">
                 <div className="flex gap-2">
                     <button onClick={() => setToggle(true)}><CgMenuGridR className={`w-8 h-8 ${toggle ? 'text-blue-500' : ''}`} /></button>
                     <button onClick={() => setToggle(false)}><TfiMenuAlt className={`w-8 h-8 ${toggle ? '' : 'text-blue-500 '}`} /></button>
@@ -51,7 +51,7 @@ const AllQueries = () => {
                         {Array.from({ length: 8 }).map((_, index) => (
                             <div
                                 key={index}
-                                className={`relative ${toggle || 'flex justify-between items-center'} border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition`}
+                                className={`relative ${toggle || 'flex justify-between items-center'} border rounded-lg shadow-md overflow-hidden bgS hover:shadow-lg transition`}
                             >
                                 <div className={`absolute top-1 left-1 text-xs px-3 py-1 rounded-md bg-blue-100/60 animate-pulse`}>
                                     <div className="h-4 w-16 bg-blue-300 rounded animate-pulse"></div>
@@ -75,9 +75,9 @@ const AllQueries = () => {
                         {queries.map(query => (
                             <div
                                 key={query._id}
-                                className={`relative ${toggle ? 'flex-col justify-between items-center' : 'flex-row'} flex h-full border rounded-lg shadow-md  bg-white hover:shadow-lg transition`}
+                                className={`relative ${toggle ? 'flex-col justify-between items-center' : 'flex-row'} flex h-full dark:border-gray-700 border rounded-lg shadow-md  bgS hover:shadow-lg transition`}
                             >
-                                <div className={`px-3 rounded-md text-xs ${toggle && 'bg-blue-100/60 text-blue-500'} font-semibold top-1 left-1 absolute ${toggle ? 'flex flex-col' : ''}`}>
+                                <div className={`px-3 rounded-md text-xs ${toggle && 'dark:bg-gray-800/50 bg-blue-100/60 dark:text-white text-blue-500 items-center'} font-semibold top-1 left-1 absolute ${toggle ? 'flex flex-col' : ''}`}>
                                     <span className={`${toggle || 'bg-blue-100/60 text-blue-500 badge'}`}>{format(new Date(query.uploadDate), "P")}</span>
                                     <span className={`${toggle || 'bg-blue-100/60 text-blue-500 badge'}`}>{format(new Date(query.uploadDate), "p")}</span>
                                 </div>
@@ -90,7 +90,7 @@ const AllQueries = () => {
                                 </div>
                                 <div className={`${toggle ? '' : 'md:w-1/2 items-start'} p-4 h-full flex flex-col`}>
                                     <h2 className="font-bold">{query.product_name}</h2>
-                                    <p className="text-sm mb-2 text-gray-600">{toggle ? query.query_title.substring(0, 50) : query.query_title} <span className={`${query.query_title.length > 50 && toggle || 'hidden'}`}>...</span></p>
+                                    <p className="text-sm mb-2 text-gray-600 dark:text-gray-400">{toggle ? query.query_title.substring(0, 50) : query.query_title} <span className={`${query.query_title.length > 50 && toggle || 'hidden'}`}>...</span></p>
                                     <p className="mb-2 flex gap-2 items-center"><FaComment></FaComment> Recommended : {query.recommendationCount}</p>
                                     <p className="mb-2 flex gap-2 items-center flex-grow-0"><FaUser></FaUser> {query.authorEmail}</p>
                                     <Link className="actionBtn w-full mt-auto text-center" to={`/querie-details/${query?._id}`}>Do Recommend</Link>

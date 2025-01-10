@@ -22,7 +22,7 @@ const Queries = () => {
                 {
                     fetchLoading === true ?
                         Array.from({ length: 4 }).map((_, idx) => (
-                            <div key={idx} className="relative border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition ">
+                            <div key={idx} className="relative border rounded-lg shadow-md overflow-hidden dark:bg-[#1a2734] bgS hover:shadow-lg transition ">
                                 <div className="px-3 rounded-md bg-blue-100/60 text-blue-500 font-semibold top-1 left-1 absolute flex flex-col">
                                     <span className="h-4 w-16 bg-blue-300 animate-pulse rounded-md mb-2"></span>
                                     <span className="h-4 w-12 bg-blue-300 animate-pulse rounded-md"></span>
@@ -44,9 +44,9 @@ const Queries = () => {
                         queries.map(query => (
                             <div
                                 key={query._id}
-                                className="relative border rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition h-full flex flex-col flex-grow"
+                                className="relative border dark:border-gray-500 rounded-lg shadow-md overflow-hidden dark:bg-[#223d59] bgS hover:shadow-lg transition h-full flex flex-col flex-grow"
                             >
-                                <div className="px-3 text-xs rounded-md bg-blue-100/60 text-blue-500 font-semibold top-1 left-1 absolute flex flex-col">
+                                <div className="px-3 text-xs rounded-md dark:bg-gray-800/50 bg-blue-100/60 dark:text-white text-blue-500 font-semibold top-1 left-1 absolute flex flex-col items-center">
                                     <span>{format(new Date(query.uploadDate), "P")}</span>
                                     <span>{format(new Date(query.uploadDate), "p")}</span>
                                 </div>
@@ -58,7 +58,7 @@ const Queries = () => {
                                 />
                                 <div className="p-4 h-full flex flex-col">
                                     <h2 className="text-lg font-bold">{query.product_name}</h2>
-                                    <p className="text-sm mb-3 text-gray-600">{query.query_title.substring(0, 50)}...</p>
+                                    <p className="text-sm mb-3 dark:text-gray-300 text-gray-600">{query.query_title.substring(0, 50)}...</p>
                                     <p className="mb-4 font-bold flex-grow">RecommendationCount : {query.recommendationCount}</p>
                                     <Link className="actionBtn mt-auto text-center" to={`/querie-details/${query?._id}`}>Do Recommend</Link>
                                 </div>

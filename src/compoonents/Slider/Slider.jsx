@@ -49,7 +49,7 @@ const Slider = () => {
 
             <SwiperSlide className='flex items-center justify-center'>
                 <div
-                    className=" min-h-[40vh] md:min-h-[60vh] bg-cover bg-center text-white flex items-center justify-center backgroundImage1  relative border"
+                    className=" min-h-[40vh] md:min-h-[60vh] bg-cover bg-center text-white flex items-center justify-center backgroundImage1  relative"
 
                 >
                     <div className='bg-black absolute inset-0 opacity-50'>

@@ -9,8 +9,8 @@ const MainLayout = () => {
         AOS.init();
     }, []);
     return (
-        <div className=''>
-            <div className="sticky top-0 backdrop-blur-lg bg-[#f9fafb] z-50 border-b">
+        <div className='dark:bg-[#15202b] bg-[#f9fafb]  dark:text-white '>
+            <div className="sticky top-0  bg-base z-50 dark:border-gray-700 border border-x-0 border-t-0 border-b">
                 <Navbar></Navbar>
             </div>
             <div className='px-4 lg:p-0'>

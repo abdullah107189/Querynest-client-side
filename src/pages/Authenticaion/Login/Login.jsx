@@ -48,10 +48,10 @@ const Login = () => {
 
     return (
         <div>
-            <div className="flex p-4 py-10 bg-gray-50 items-center justify-center">
-                <div className="md:w-2/3 p-4 border shadow-xl bg-gray-100 w-full h-full rounded-lg flex flex-col items-center ">
+            <div className="flex p-4 py-10 bgP items-center justify-center">
+                <div className="md:w-2/3 p-4 dark:border-gray-700 border shadow-xl bgS w-full h-full rounded-lg flex flex-col items-center ">
                     <div className='flex flex-col items-center '>
-                        <img className='w-[150px] object-contain' src={logo} alt="" />
+                        <img className='w-[150px] object-contain dark:bg-gray-400 rounded-lg' src={logo} alt="" />
                         <p className="text-lg mb-3 text-center">
                             A place to share knowledge and get to know the world better.
                         </p>

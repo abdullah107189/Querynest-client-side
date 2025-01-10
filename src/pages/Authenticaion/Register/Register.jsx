@@ -69,10 +69,10 @@ const Register = () => {
     }
 
     return (
-        <div className="flex md:py-10 py-5 items-center justify-center bg-gray-50">
-            <div className="w-2/3 h-full p-5 bg-gray-100 rounded-lg shadow-lg flex flex-col items-center">
+        <div className="flex md:py-10 py-5 items-center justify-center bgP">
+            <div className="w-2/3 h-full p-5 bgS rounded-lg shadow-lg flex flex-col items-center">
                 <div className='flex flex-col items-center'>
-                    <img className='w-[150px] object-contain' src={logo} alt="" />
+                    <img className='w-[150px] object-contain dark:bg-gray-400 rounded-lg' src={logo} alt="" />
                     <p className="text-lg mb-3 text-center">
                         A place to share knowledge and get to know the world better.
                     </p>

@@ -60,11 +60,11 @@ const MyRecommendation = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th className="border px-4 py-2">Product Author</th>
-                            <th className="border px-4 py-2">Title</th>
-                            <th className="border px-4 py-2">Product Name</th>
-                            <th className="border px-4 py-2">Recommend Product Image</th>
-                            <th className="border px-4 py-2">Action</th>
+                            <th className="dark:border-gray-700 border px-4 py-2">Product Author</th>
+                            <th className="dark:border-gray-700 border px-4 py-2">Title</th>
+                            <th className="dark:border-gray-700 border px-4 py-2">Product Name</th>
+                            <th className="dark:border-gray-700 border px-4 py-2">Recommend Product Image</th>
+                            <th className="dark:border-gray-700 border px-4 py-2">Action</th>
                         </tr>
                     </thead>
                     {
@@ -72,19 +72,19 @@ const MyRecommendation = () => {
                             <tbody>
                                 {Array.from({ length: 3 }).map((_, index) => (
                                     <tr key={index}>
-                                        <td className="border">
+                                        <td className="dark:border-gray-700 border">
                                             <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
                                         </td>
-                                        <td className="border">
+                                        <td className="dark:border-gray-700 border">
                                             <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
                                         </td>
-                                        <td className="border">
+                                        <td className="dark:border-gray-700 border">
                                             <div className="h-4 w-3/4 bg-gray-200 animate-pulse rounded-md mx-auto"></div>
                                         </td>
-                                        <td className="border">
+                                        <td className="dark:border-gray-700 border">
                                             <div className="w-20 h-20 bg-gray-200 animate-pulse rounded mx-auto"></div>
                                         </td>
-                                        <td className="border">
+                                        <td className="dark:border-gray-700 border">
                                             <div className="flex items-center justify-center">
                                                 <div className="h-10 w-24 bg-red-300 animate-pulse rounded-md"></div>
                                             </div>
@@ -97,20 +97,20 @@ const MyRecommendation = () => {
                             myRecommendation.length === 0 ?
                                 <tbody>
                                     <tr className="text-center">
-                                        <td className="border text-3xl font-bold" colSpan={5}>There is no recommendation data</td>
+                                        <td className="dark:border-gray-700 border text-3xl font-bold" colSpan={5}>There is no recommendation data</td>
                                     </tr>
                                 </tbody>
                                 :
                                 <tbody>
                                     {myRecommendation.map((rec, index) => (
                                         <tr key={index}>
-                                            <td className="border">{rec.userEmail}</td>
-                                            <td className="border">{rec.recommendationTitle}</td>
-                                            <td className="border">{rec.recommendedProductName}</td>
-                                            <td className="border">
+                                            <td className="dark:border-gray-700 border">{rec.userEmail}</td>
+                                            <td className="dark:border-gray-700 border">{rec.recommendationTitle}</td>
+                                            <td className="dark:border-gray-700 border">{rec.recommendedProductName}</td>
+                                            <td className="dark:border-gray-700 border">
                                                 <img src={rec.recommendedProductImage} alt={rec.recommendedProductName} className="min-w-20 h-20 mx-auto object-cover rounded" />
                                             </td>
-                                            <td className="border">
+                                            <td className="dark:border-gray-700 border">
                                                 <div className="flex items-center justify-center">
                                                     <button
                                                         onClick={() => handleDelete(rec._id, rec.queryId)}

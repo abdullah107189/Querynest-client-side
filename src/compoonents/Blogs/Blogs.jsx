@@ -17,7 +17,7 @@ const blogs = [
 
 const BlogSection = () => {
     return (
-        <section className="bg-gray-50 md:pt-20 pt-10">
+        <section className="bgP md:pt-20 pt-10">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center mb-5">Our Blog</h2>
                 <p className="text-center text-gray-600 mb-8 text-xl">
@@ -25,7 +25,7 @@ const BlogSection = () => {
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                     {blogs.map((blog) => (
-                        <div key={blog.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition overflow-hidden">
+                        <div key={blog.id} className="bgS rounded-lg shadow-md hover:shadow-lg transition overflow-hidden">
                             <img
                                 src={blog.image}
                                 alt={blog.title}
@@ -33,7 +33,7 @@ const BlogSection = () => {
                             />
                             <div className="p-4">
                                 <h3 className="text-xl font-bold mb-2">{blog.title}</h3>
-                                <p className="text-gray-600 mb-4">{blog.description}</p>
+                                <p className="text-gray-600 dark:text-gray-300 mb-4">{blog.description}</p>
                             </div>
                         </div>
                     ))}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { format } from 'date-fns';
@@ -12,7 +12,6 @@ const QueryDetails = () => {
     const [queryData, setQueryData] = useState([])
     const [allRecommendation, setAllRecommendation] = useState([])
     const axiosInstance = useAxiosSecure()
-    const navigate = useNavigate()
     useEffect(() => {
         axiosInstance.get(`/querie-details/${id}`)
             .then(res => {
@@ -57,7 +56,7 @@ const QueryDetails = () => {
             <div className="minH flex items-center justify-center">
                 <div className="container mx-auto p-5 grid grid-cols-1 md:grid-cols-2 gap-3">
                     {/* Query Information */}
-                    <div className="bg-white shadow-md rounded-lg p-5 border">
+                    <div className="bgS shadow-md rounded-lg p-5 border">
                         <h1 className="text-2xl font-bold text-gray-700">{queryData?.query_title}</h1>
                         <p className="mt-3 text-gray-600">{queryData?.boycotting_reason}</p>
                         <div className="mt-5">
@@ -82,7 +81,7 @@ const QueryDetails = () => {
                     </div>
 
                     {/* Recommendation Form */}
-                    <div className="bg-white shadow-md rounded-lg p-5 border">
+                    <div className="bgS shadow-md rounded-lg p-5 border">
                         <h2 className="md:text-4xl text-2xl text-center font-semibold text-gray-700 mb-4">Add a Recommendation</h2>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
@@ -132,7 +131,7 @@ const QueryDetails = () => {
                 </div>
             </div>
             {/* All Recommendations */}
-            < div className="bg-white shadow-md rounded-lg p-5 mb-5" >
+            < div className="bgS shadow-md rounded-lg p-5 mb-5" >
                 <h2 className="text-xl font-semibold text-gray-700 mb-4">All Recommendations</h2>
                 <div className="space-y-4 Z">
                     {allRecommendation.map((rec, idx) => (

@@ -31,7 +31,7 @@ const NewsletterSubscription = () => {
                         <input
                             type="email"
                             placeholder="Enter your email address"
-                            className="flex-grow px-4 py-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+                            className="flex-grow px-4 py-3 rounded-md textP focus:outline-none focus:ring-2 focus:ring-blue-300"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required

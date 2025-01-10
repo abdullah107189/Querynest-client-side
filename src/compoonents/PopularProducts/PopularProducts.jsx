@@ -16,7 +16,7 @@ const PopularProducts = () => {
             <div>
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {popularQueries.map((product, index) => (
-                        <li key={index} className="hover:scale-105 transform duration-300 flex items-center bg-white shadow-md rounded-md p-2 border-dashed border-2 bg[#2f4156]">
+                        <li key={index} className="hover:scale-105 transform duration-300 flex items-center bgP shadow-md rounded-md p-2 border-dashed border-2 bg[#2f4156]">
                             <img
                                 src={product.product_url}
                                 alt={product.product_name}

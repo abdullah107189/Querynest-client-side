@@ -17,46 +17,46 @@ const ContactSection = () => {
             <div className="md:flex justify-between gap-10 md:p-0 p-4">
                 <div className="md:w-1/2">
                     <h2 className="text-2xl font-bold mb-4">Send A Message</h2>
-                    <form onSubmit={handleSubmit} className="space-y-4 border p-5 rounded-lg">
+                    <form onSubmit={handleSubmit} className="space-y-4 dark:border-gray-700 border p-5 rounded-lg">
                         <div>
-                            <label htmlFor="name" className="block text-gray-700">Name</label>
+                            <label htmlFor="name" className="block ">Name</label>
                             <input
                                 type="text"
                                 id="name"
-                                className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
+                                className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
 
                             />
                         </div>
                         <div>
-                            <label htmlFor="email" className="block text-gray-700">Email</label>
+                            <label htmlFor="email" className="block ">Email</label>
                             <input
                                 type="email"
                                 id="email"
-                                className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
+                                className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
 
                             />
                         </div>
                         <div>
-                            <label htmlFor="subject" className="block text-gray-700">Subject</label>
+                            <label htmlFor="subject" className="block ">Subject</label>
                             <input
                                 type="text"
                                 id="subject"
-                                className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
+                                className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                                 value={subject}
                                 onChange={(e) => setSubject(e.target.value)}
 
                             />
                         </div>
                         <div>
-                            <label htmlFor="message" className="block text-gray-700">Message</label>
+                            <label htmlFor="message" className="block ">Message</label>
                             <textarea
                                 id="message"
                                 rows="4"
-                                className="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none"
+                                className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
 
@@ -72,10 +72,10 @@ const ContactSection = () => {
                 </div>
                 <div className="md:w-1/2">
                     <h2 className="text-2xl font-bold mb-4">Contact Details</h2>
-                    <p className="text-gray-600 text-2xl mb-2">
+                    <p className="text-gray-600 dark:text-gray-400 text-2xl mb-2">
                         Etiam sit amet orci eget eros faucibus tincidunt. Pellentesque commodo eros a enim. Etiam rhoncus. Nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras sagittis.
                     </p>
-                    <p className="text-gray-600 text-2xl">
+                    <p className="text-gray-600 dark:text-gray-400 text-2xl">
                         Vestibulum turpis sem, aliquet eget, lobortis pellentesque.
                     </p>
                     <div className="flex items-center justify-center mt-5">
