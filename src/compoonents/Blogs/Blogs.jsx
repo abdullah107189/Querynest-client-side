@@ -20,7 +20,7 @@ const BlogSection = () => {
         <section className="bgP md:pt-20 pt-10">
             <div className="container mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center mb-5">Our Blog</h2>
-                <p className="text-center text-gray-600 mb-8 text-xl">
+                <p className="text-center dark:text-gray-300 text-gray-600 mb-8 text-xl">
                     Explore tips, guides, and trends to enhance your experience with recommendations.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">

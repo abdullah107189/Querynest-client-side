@@ -129,7 +129,7 @@ const MyQueries = () => {
                                                         <img src={query.product_url} alt={query.product_name} className="min-w-20 h-20 mx-auto object-cover rounded" />
                                                     </td>
                                                     <td className="dark:border-gray-700 border">
-                                                        <div className="p-1 rounded-md bg-blue-100/60 text-blue-500 font-semibold  flex flex-col items-center"><span>{format(new Date(query.uploadDate), "P")}</span> <span>{format(new Date(query.uploadDate), "p")}</span></div>
+                                                        <div className="p-1 rounded-md dark:bg-gray-700/50 bg-blue-100/60 dark:text-white text-blue-500 font-semibold  flex flex-col items-center"><span>{format(new Date(query.uploadDate), "P")}</span> <span>{format(new Date(query.uploadDate), "p")}</span></div>
                                                     </td>
                                                     <td className="dark:border-gray-700 border">
                                                         <Link to={`/querie-details/${query?._id}`} className="flex items-center justify-center">

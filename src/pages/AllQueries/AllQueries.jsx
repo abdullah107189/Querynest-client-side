@@ -78,8 +78,8 @@ const AllQueries = () => {
                                 className={`relative ${toggle ? 'flex-col justify-between items-center' : 'flex-row'} flex h-full dark:border-gray-700 border rounded-lg shadow-md  bgS hover:shadow-lg transition`}
                             >
                                 <div className={`px-3 rounded-md text-xs ${toggle && 'dark:bg-gray-800/50 bg-blue-100/60 dark:text-white text-blue-500 items-center'} font-semibold top-1 left-1 absolute ${toggle ? 'flex flex-col' : ''}`}>
-                                    <span className={`${toggle || 'bg-blue-100/60 text-blue-500 badge'}`}>{format(new Date(query.uploadDate), "P")}</span>
-                                    <span className={`${toggle || 'bg-blue-100/60 text-blue-500 badge'}`}>{format(new Date(query.uploadDate), "p")}</span>
+                                    <span className={`${toggle || 'dark:bg-gray-700/50 bg-blue-100/60 dark:text-white text-blue-500 badge'}`}>{format(new Date(query.uploadDate), "P")}</span>
+                                    <span className={`${toggle || 'dark:bg-gray-700/50 bg-blue-100/60 dark:text-white text-blue-500 badge'}`}>{format(new Date(query.uploadDate), "p")}</span>
                                 </div>
                                 <div className={`${toggle || 'md:w-1/2'}`}>
                                     <img

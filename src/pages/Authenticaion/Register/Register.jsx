@@ -81,7 +81,7 @@ const Register = () => {
                 <div className='lg:flex gap-10 items-center'>
                     <div className="flex flex-col space-y-4 lg:w-1/2">
                         <p>By continuing, you agree to QueryNest <span className='text-blue-500 cursor-pointer'>Terms of Use</span> and <span className='text-blue-500 cursor-pointer'>Privacy Policy</span> .</p>
-                        <button onClick={() => handleLoginWithGoogle()} className="bg-blue-400 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md flex items-center justify-center gap-3">
+                        <button onClick={() => handleLoginWithGoogle()} className="actionBtn flex items-center justify-center gap-3">
                             <img className='w-8 h-8' src={googleLogo} alt="" /> Continue with Google
                         </button>
                     </div>
@@ -141,7 +141,7 @@ const Register = () => {
                                     placeholder="Enter your password"
                                 />
                             </div>
-                            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md w-full">
+                            <button className="actionBtn w-full">
                                 Register
                             </button>
                         </form>

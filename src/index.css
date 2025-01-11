@@ -6,21 +6,27 @@ body {
     overflow-y: scroll;
 }
 
+* {
+    scroll-behavior: smooth;
+}
 
 @layer components {
     .actionBtn {
-        @apply text-black hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-1 md:px-5 px-3 text-sm md:text-base rounded-md transform duration-300 dark:bg-blue-100/10 dark:text-gray-200 bg-white
+        @apply text-black  hover:bg-blue-500 font-semibold border border-blue-500 hover:text-white py-1 md:px-5 px-3 text-sm md:text-base rounded-md transform duration-200 dark:hover:bg-gray-700 dark:bg-blue-700/10 dark:text-gray-200 bg-white
     }
 
     .bgP {
         @apply dark:bg-[#15202b] bg-[#f9fafb]
     }
+
     .bgS {
         @apply dark:bg-[#1a2734] bg-white
     }
+
     .textP {
         @apply text-[#15202b] dark:text-[#f9fafb]
     }
+
     .textS {
         @apply text-[#1a2734] dark:text-white
     }

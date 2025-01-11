@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import { FaComment, FaUser } from "react-icons/fa";
 
 const Queries = () => {
     const [queries, setQueries] = useState([])
@@ -59,7 +60,8 @@ const Queries = () => {
                                 <div className="p-4 h-full flex flex-col">
                                     <h2 className="text-lg font-bold">{query.product_name}</h2>
                                     <p className="text-sm mb-3 dark:text-gray-300 text-gray-600">{query.query_title.substring(0, 50)}...</p>
-                                    <p className="mb-4 font-bold flex-grow">RecommendationCount : {query.recommendationCount}</p>
+                                    <p className="mb-2 flex gap-2 items-center"><FaComment></FaComment> Recommended : {query.recommendationCount}</p>
+                                    <p className="mb-2 flex gap-2 items-center flex-grow-0"><FaUser></FaUser> {query.authorEmail}</p>
                                     <Link className="actionBtn mt-auto text-center" to={`/querie-details/${query?._id}`}>Do Recommend</Link>
                                 </div>
                             </div>

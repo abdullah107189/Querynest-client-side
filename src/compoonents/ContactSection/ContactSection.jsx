@@ -15,7 +15,7 @@ const ContactSection = () => {
         <div className=' md:py-20 py-10 px-4'>
             <h1 className='md:text-4xl text-center font-bold md:mb-10 mb-5'>Contact section</h1>
             <div className="md:flex justify-between gap-10 md:p-0 p-4">
-                <div className="md:w-1/2">
+                <div className="md:w-1/2 bgS">
                     <h2 className="text-2xl font-bold mb-4">Send A Message</h2>
                     <form onSubmit={handleSubmit} className="space-y-4 dark:border-gray-700 border p-5 rounded-lg">
                         <div>
@@ -64,7 +64,7 @@ const ContactSection = () => {
                         </div>
                         <button
                             type="submit"
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            className="actionBtn"
                         >
                             SEND MESSAGE
                         </button>
