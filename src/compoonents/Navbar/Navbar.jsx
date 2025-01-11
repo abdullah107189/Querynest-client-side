@@ -33,11 +33,11 @@ const Navbar = () => {
 
 
     return (
-        <div className="mxw text-white bgP">
+        <div className="mxw text-white bgP overflow-hidden">
             <div className="navbar py-0">
                 <div className="navbar-start z-30 ">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-black dark:text-white">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -83,6 +83,7 @@ const Navbar = () => {
                                 <NavLink to="/recommend-for-me" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>Recommendations For Me</NavLink>
                                 <NavLink to="/my-queries" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>My Queries</NavLink>
                                 <NavLink to="/my-recommend" className={({ isActive }) => `${isActive ? 'activeActionBtn' : 'actionBtn'}   `}>My Recommendations</NavLink>
+
                             </ul>
                             :
                             <ul className="menu menu-horizontal px-1 gap-3">
@@ -91,8 +92,9 @@ const Navbar = () => {
                             </ul>
                     }
                 </div>
-                <div className="navbar-end gap-2">
-                    <label className="md:grid cursor-pointer place-items-center hidden">
+                <div className="navbar-end gap-2 items-center">
+
+                    <label className=" cursor-pointer place-items-center relative -bottom-5 mr-2">
                         <input
                             type="checkbox"
                             checked={theme === 'dark'}
@@ -132,7 +134,7 @@ const Navbar = () => {
                         user ?
                             <div className="flex gap-2 items-center">
                                 <img referrerPolicy="no-referrer" className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
-                                <button onClick={handlLogout} className="actionBtn">Log-out</button>
+                                <button onClick={handlLogout} className="actionBtn w-full">Log-out</button>
                             </div>
                             :
                             <div>
