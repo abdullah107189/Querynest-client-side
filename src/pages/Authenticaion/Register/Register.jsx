@@ -98,7 +98,7 @@ const Register = () => {
                                     id="name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    className="w-full px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
+                                    className="w-full bgP px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
                                     placeholder="Enter your name"
                                 />
                             </div>
@@ -111,7 +111,7 @@ const Register = () => {
                                     id="photoUrl"
                                     value={photoUrl}
                                     onChange={(e) => setPhotoUrl(e.target.value)}
-                                    className="w-full px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
+                                    className="w-full bgP px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
                                     placeholder="Enter your photo URL"
                                 />
                             </div>
@@ -124,7 +124,7 @@ const Register = () => {
                                     id="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
+                                    className="w-full px-4 bgP py-2 rounded-md focus:outline-none focus:border-blue-500"
                                     placeholder="Enter your email"
                                 />
                             </div>
@@ -137,7 +137,7 @@ const Register = () => {
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
+                                    className="w-full px-4 bgP py-2 rounded-md focus:outline-none focus:border-blue-500"
                                     placeholder="Enter your password"
                                 />
                             </div>
