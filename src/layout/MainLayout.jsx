@@ -14,7 +14,7 @@ const MainLayout = () => {
       <div className="sticky top-0  bg-base z-50 dark:border-gray-700 border border-x-0 border-t-0 border-b">
         <Navbar></Navbar>
       </div>
-      <div className="px-4 lg:p-0">
+      <div className="px-2 lg:p-0">
         <Outlet></Outlet>
       </div>
       <div className="" id="footer">

@@ -36,7 +36,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="mxw text-white bgP overflow-hidden">
+    <div className="mxw text-white bgP ">
       <div className="navbar py-0">
         <div className="navbar-start z-30 ">
           <div className="dropdown">
