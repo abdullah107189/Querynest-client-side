@@ -1,4 +1,6 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { CgSpinner } from "react-icons/cg";
 import {
   FaFacebook,
   FaTwitter,
@@ -8,6 +10,7 @@ import {
 } from "react-icons/fa";
 
 const ContactSection = () => {
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -15,6 +18,15 @@ const ContactSection = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      toast.success("message sent");
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+      setLoading(false);
+    }, 2000);
   };
 
   return (
@@ -23,7 +35,7 @@ const ContactSection = () => {
         Contact section
       </h1>
       <div className="md:flex justify-between gap-10 md:p-0 p-4">
-        <div className="md:w-1/2 ">
+        <div className="md:w-1/2">
           <h2 className="text-2xl font-bold mb-4">Send A Message</h2>
           <form
             onSubmit={handleSubmit}
@@ -35,6 +47,7 @@ const ContactSection = () => {
               </label>
               <input
                 type="text"
+                required
                 id="name"
                 className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                 value={name}
@@ -47,6 +60,7 @@ const ContactSection = () => {
               </label>
               <input
                 type="email"
+                required
                 id="email"
                 className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                 value={email}
@@ -59,6 +73,7 @@ const ContactSection = () => {
               </label>
               <input
                 type="text"
+                required
                 id="subject"
                 className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                 value={subject}
@@ -71,6 +86,7 @@ const ContactSection = () => {
               </label>
               <textarea
                 id="message"
+                required
                 rows="4"
                 className="w-full dark:border-gray-700 border rounded-md py-2 px-3 focus:outline-none"
                 value={message}
@@ -78,7 +94,11 @@ const ContactSection = () => {
               ></textarea>
             </div>
             <button type="submit" className="actionBtn">
-              SEND MESSAGE
+              {loading ? (
+                <CgSpinner className="animate-spin"></CgSpinner>
+              ) : (
+                "SEND MESSAGE"
+              )}
             </button>
           </form>
         </div>

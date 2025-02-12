@@ -203,7 +203,7 @@ const Navbar = () => {
             </ul>
           )}
         </div>
-        <div className="navbar-end gap-2 items-center">
+        <div className="navbar-end gap-2 items-center overflow-hidden">
           <label className=" cursor-pointer place-items-center relative -bottom-5 mr-2">
             <input
               type="checkbox"
